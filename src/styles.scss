@@ -2,3 +2,261 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+$primary-color: #51BFA5;
+
+.bg-accent, .button:before {
+    background-color: $primary-color;
+}
+
+.text-accent {
+    color: $primary-color;
+}
+
+.border-accent {
+    border-color: $primary-color;
+}
+
+.btn-switch {
+    &:hover {
+        background-color: $primary-color;
+    }
+}
+
+.header {
+    ul.icon-menu {
+        li.desktop-nav-item {
+
+            &:hover,
+            &.active {
+                background-color: $primary-color;
+
+                h2 {
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    z-index: 1;
+    min-height: 100%;
+    opacity: 0;
+
+    &.page--current {
+        visibility: visible;
+        position: relative;
+        overflow: auto;
+        opacity: 1;
+    }
+}
+
+.avatar {
+    .avatar-image {
+        animation: morph 8s ease-in-out infinite 1s;
+        background-blend-mode: multiply;
+        -webkit-box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+        -moz-box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+        box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+    }
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+
+        &:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        &:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        &:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        &:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        &:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        &:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        &:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        &:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        &:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* SOCIAL BTN */
+.socials {
+    @apply absolute bottom-[30px] w-auto;
+}
+.social-btn {
+    @apply flex w-full;
+
+    > li {
+        @apply inline-block;
+        > a {
+            > i, fa-icon {
+                @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-[1.04em] rounded-[40px];
+
+                &:hover{ background: #fff!important; }
+
+                &[class*="facebook"]{
+                    background: #2A61D6;
+
+                    &:hover, &:active, &:focus {
+                        color: #2A61D6;
+                    }
+                }
+                &[class*="twitter"]{
+                    background: #3AA4F8;
+
+                    &:hover, &:active, &:focus {
+                        color: #3AA4F8;
+                    }
+                }
+                &[class*="skype"]{
+                    background: #00AFF0;
+
+                    &:hover, &:active, &:focus {
+                        color: #00AFF0;
+                    }
+                }
+                &[class*="linkedin"]{
+                    background: #0077B5;
+
+                    &:hover, &:active, &:focus {
+                        color: #0077B5;
+                    }
+                }
+                &[class*="google"]{
+                    background: #F43846;
+
+                    &:hover, &:active, &:focus {
+                        color: #F43846;
+                    }
+                }
+                &[class*="instagram"]{
+                    background: #8F614A;
+
+                    &:hover, &:active, &:focus {
+                        color: #8F614A;
+                    }
+                }
+                &[class*="pinterest"]{
+                    background: #E1C013;
+
+                    &:hover, &:active, &:focus {
+                        color: #E1C013;
+                    }
+                }
+            }
+        }
+    }
+}

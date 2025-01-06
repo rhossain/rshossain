@@ -1,29 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {
-  FontAwesomeModule,
-  FaIconLibrary,
-} from '@fortawesome/angular-fontawesome';
-import {
-  faStackOverflow,
-  faGithub,
-  faMedium,
-} from '@fortawesome/free-brands-svg-icons';
+import { HomeComponent } from './pages/home/home.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, FontAwesomeModule],
+    imports: [RouterOutlet, HomeComponent, MaintenanceComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'rshossain';
+  title = 'Sazzad Hossain Robin';
   
-  constructor(library: FaIconLibrary) {
-    library.addIcons(
-      faStackOverflow,
-      faGithub,
-      faMedium
-    );
-  }
+  isLive: boolean = true;
 }
