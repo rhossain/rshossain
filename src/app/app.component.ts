@@ -12,5 +12,5 @@ import { MaintenanceComponent } from './pages/maintenance/maintenance.component'
 export class AppComponent {
   title = 'Sazzad Hossain Robin';
   
-  isLive: boolean = false;
+  isLive: boolean = true;
 }

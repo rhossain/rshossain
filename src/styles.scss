@@ -3,7 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-$primary-color: #51BFA5;
+@layer base {
+    :root {
+        --color-primary: #51BFA5;
+    }
+}
+
+$primary-color: var(--color-primary);
 
 .bg-accent, .button:before {
     background-color: $primary-color;
@@ -17,9 +23,33 @@ $primary-color: #51BFA5;
     border-color: $primary-color;
 }
 
-.btn-switch {
+.btn-default {
     &:hover {
         background-color: $primary-color;
+    }
+}
+
+.mobile-nav-item {
+    @apply relative z-0;
+    transition: 1s all ease;
+    
+    &:before {
+        @apply bg-primary;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: -1;
+      transition: all 0.6s ease;
+        width: 100%;
+  height: 0%;
+    }
+    
+    &:hover {
+        &:before {
+            height: 100%;
+        }
     }
 }
 
