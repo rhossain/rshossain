@@ -13,6 +13,12 @@ import {
 import {
   faSun
 } from '@fortawesome/free-regular-svg-icons';
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faSkype
+} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +34,11 @@ export class HomeComponent {
       faEnvelopeOpen,
       faHouse,
       faSun,
-      faUser
+      faUser,
+      faFacebookF,
+      faInstagram,
+      faLinkedinIn,
+      faSkype
     );
   }
 }

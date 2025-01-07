@@ -43,15 +43,56 @@
         <div class="fixed top-0 right-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0">
             <div class="float-right min-h-full w-[85%] bg-zinc-950 px-6 pt-12 shadow-2xl">
                 <ul id="mobile-nav" class="max-w-[calc(100%-66px)]">
-                    <li class="mobile-nav-item flex py-[10px] border-b border-solid border-white/40 uppercase cursor-pointer">
-                        <fa-icon [icon]="['fas', 'house']" class="text-[16px] block mr-[10px]"></fa-icon>
-                        <span class="block">Home</span>
+                    <li class="mobile-nav-item">
+                        <a href="#" class="mobile-nav-link">
+                            <fa-icon [icon]="['fas', 'house']" class="mobile-nav-icon"></fa-icon>
+                            <span class="block">Home</span>
+                        </a>
                     </li>
-                    <li class="mobile-nav-item flex py-[10px] border-b border-solid border-white/40 uppercase cursor-pointer">
-                        <fa-icon [icon]="['fas', 'envelope-open']" class="text-[16px] block mr-[10px]"></fa-icon>
-                        <span class="block">Contact</span>
+                    <li class="mobile-nav-item">
+                        <a href="#" class="mobile-nav-link">
+                            <fa-icon [icon]="['fas', 'user']" class="mobile-nav-icon"></fa-icon>
+                            <span class="block">About</span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#" class="mobile-nav-link">
+                            <fa-icon [icon]="['fas', 'briefcase']" class="mobile-nav-icon"></fa-icon>
+                            <span class="block">Portfolio</span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#" class="mobile-nav-link">
+                            <fa-icon [icon]="['fas', 'envelope-open']" class="mobile-nav-icon"></fa-icon>
+                            <span class="block">Contact</span>
+                        </a>
                     </li>
                 </ul>
+                <div class="socials flex flex-col">
+                    <p class="mb-[8px]">You can reach me:</p>
+                    <ul class="social-btn">
+                        <li>
+                            <a href="https://www.facebook.com/rhossainbd" target="_blank">
+                                <fa-icon class="facebook" [icon]="['fab', 'facebook-f']"></fa-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://join.skype.com/invite/vwNHYMYW5jvJ" target="_blank">
+                                <fa-icon class="skype" [icon]="['fab', 'skype']"></fa-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/rhossain" target="_blank">
+                                <fa-icon class="linkedin" [icon]="['fab', 'linkedin-in']"></fa-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/rshossain.bd" target="_blank">
+                                <fa-icon class="instagram" [icon]="['fab', 'instagram']"></fa-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </label>

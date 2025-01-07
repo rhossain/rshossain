@@ -5,50 +5,74 @@
 
 @layer base {
     :root {
-        --color-primary: #51BFA5;
+        --color-primary: 81, 191, 165; // #51BFA5
     }
 }
 
-$primary-color: var(--color-primary);
+$primary-color: #51BFA5;
 
-.bg-accent, .button:before {
-    background-color: $primary-color;
+.bg-accent,
+.button:before {
+    @apply bg-primary;
 }
 
 .text-accent {
-    color: $primary-color;
+    @apply text-primary;
 }
 
 .border-accent {
-    border-color: $primary-color;
+    @apply border-primary;
 }
 
 .btn-default {
     &:hover {
-        background-color: $primary-color;
+        @apply bg-primary;
     }
 }
 
-.mobile-nav-item {
-    @apply relative z-0;
-    transition: 1s all ease;
-    
-    &:before {
-        @apply bg-primary;
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      z-index: -1;
-      transition: all 0.6s ease;
-        width: 100%;
-  height: 0%;
+.mobile-nav {
+    &-item {
+        @apply flex mb-[8px] last:mb-0 uppercase;
     }
-    
-    &:hover {
-        &:before {
-            height: 100%;
+
+    &-icon {
+        @apply text-primary text-[16px] block mr-[10px];
+    }
+
+    &-link {
+        @apply relative flex py-[4px] text-white text-[16px] whitespace-nowrap cursor-pointer;
+
+        &::before, &::after {
+            @apply absolute top-full left-0 w-full h-[1px] bg-white pointer-events-none;
+        }
+
+        &::before {
+            content: '';
+            transform-origin: 100% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        &::after {
+            content: '';
+            top: calc(100% + 4px);
+            transform-origin: 0% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        &:hover {
+            &::before {
+                transform-origin: 0% 50%;
+                transform: scale3d(1, 1, 1);
+                transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+            }
+
+            &::after {
+                transform-origin: 100% 50%;
+                transform: scale3d(1, 1, 1);
+                transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+            }
         }
     }
 }
@@ -59,10 +83,10 @@ $primary-color: var(--color-primary);
 
             &:hover,
             &.active {
-                background-color: $primary-color;
+                @apply bg-primary;
 
                 h2 {
-                    background-color: $primary-color;
+                    @apply bg-primary;
                 }
             }
         }
@@ -70,24 +94,10 @@ $primary-color: var(--color-primary);
 }
 
 .page {
-    display: flex;
-    flex-direction: column;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-    z-index: 1;
-    min-height: 100%;
-    opacity: 0;
+    @apply absolute top-0 left-0 flex flex-col w-full h-full min-h-full invisible opacity-0 z-[1];
 
     &.page--current {
-        visibility: visible;
-        position: relative;
-        overflow: auto;
-        opacity: 1;
+        @apply relative visible overflow-auto opacity-100;
     }
 }
 
@@ -214,9 +224,11 @@ $primary-color: var(--color-primary);
     0% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }
+
     50% {
         border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
     }
+
     100% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }
@@ -226,63 +238,89 @@ $primary-color: var(--color-primary);
 .socials {
     @apply absolute bottom-[30px] w-auto;
 }
-.social-btn {
-    @apply flex w-full;
 
-    > li {
+.social-btn {
+    @apply flex w-full text-center;
+
+    >li {
         @apply inline-block;
-        > a {
-            > i, fa-icon {
+
+        >a {
+
+            >i,
+            fa-icon {
                 @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-[1.04em] rounded-[40px];
 
-                &:hover{ background: #fff!important; }
+                &:hover {
+                    background: #fff !important;
+                }
 
-                &[class*="facebook"]{
+                &[class*="facebook"] {
                     background: #2A61D6;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #2A61D6;
                     }
                 }
-                &[class*="twitter"]{
+
+                &[class*="twitter"] {
                     background: #3AA4F8;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #3AA4F8;
                     }
                 }
-                &[class*="skype"]{
+
+                &[class*="skype"] {
                     background: #00AFF0;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #00AFF0;
                     }
                 }
-                &[class*="linkedin"]{
+
+                &[class*="linkedin"] {
                     background: #0077B5;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #0077B5;
                     }
                 }
-                &[class*="google"]{
+
+                &[class*="google"] {
                     background: #F43846;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #F43846;
                     }
                 }
-                &[class*="instagram"]{
+
+                &[class*="instagram"] {
                     background: #8F614A;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #8F614A;
                     }
                 }
-                &[class*="pinterest"]{
+
+                &[class*="pinterest"] {
                     background: #E1C013;
 
-                    &:hover, &:active, &:focus {
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: #E1C013;
                     }
                 }
