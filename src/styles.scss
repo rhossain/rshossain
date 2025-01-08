@@ -5,28 +5,34 @@
 
 @layer base {
     :root {
-        --color-primary: 81, 191, 165; // #51BFA5
+        --color-primary-1: 81, 191, 165; // #51BFA5
+
+        --color-brand-facebook: 42, 97, 214; // #2A61D6
+        --color-brand-google: 244, 56, 70; // #F43846
+        --color-brand-instagram: 143, 97, 74; // #8F614A
+        --color-brand-linkedin: 0, 119, 181; // #0077B5
+        --color-brand-pinterest: 225, 192, 19; // #E1C013
+        --color-brand-skype: 0, 175, 240; // #00AFF0
+        --color-brand-twitter: 58, 164, 248; // #3AA4F8
     }
 }
 
-$primary-color: #51BFA5;
-
 .bg-accent,
 .button:before {
-    @apply bg-primary;
+    @apply bg-primary-1;
 }
 
 .text-accent {
-    @apply text-primary;
+    @apply text-primary-1;
 }
 
 .border-accent {
-    @apply border-primary;
+    @apply border-primary-1;
 }
 
 .btn-default {
     &:hover {
-        @apply bg-primary;
+        @apply bg-primary-1;
     }
 }
 
@@ -36,7 +42,7 @@ $primary-color: #51BFA5;
     }
 
     &-icon {
-        @apply text-primary text-[16px] block mr-[10px];
+        @apply text-primary-1 text-[16px] block mr-[10px];
     }
 
     &-link {
@@ -83,10 +89,10 @@ $primary-color: #51BFA5;
 
             &:hover,
             &.active {
-                @apply bg-primary;
+                @apply bg-primary-1;
 
                 h2 {
-                    @apply bg-primary;
+                    @apply bg-primary-1;
                 }
             }
         }
@@ -112,94 +118,63 @@ $primary-color: #51BFA5;
 }
 
 .circles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    @apply absolute top-0 left-0 w-full h-full overflow-hidden;
 
     li {
-        position: absolute;
-        display: block;
-        list-style: none;
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.2);
+        @apply absolute -bottom-[150px] block w-[20px] h-[20px] bg-white/20 list-none;
         animation: animate 25s linear infinite;
-        bottom: -150px;
 
         &:nth-child(1) {
-            left: 25%;
-            width: 80px;
-            height: 80px;
+            @apply left-[25%] w-[80px] h-[80px];
             animation-delay: 0s;
         }
 
         &:nth-child(2) {
-            left: 10%;
-            width: 20px;
-            height: 20px;
+            @apply left-[10%] w-[20px] h-[20px];
             animation-delay: 2s;
             animation-duration: 12s;
         }
 
         &:nth-child(3) {
-            left: 70%;
-            width: 20px;
-            height: 20px;
+            @apply left-[70%] w-[20px] h-[20px];
             animation-delay: 4s;
         }
 
         &:nth-child(4) {
-            left: 40%;
-            width: 60px;
-            height: 60px;
+            @apply left-[40%] w-[60px] h-[60px];
             animation-delay: 0s;
             animation-duration: 18s;
         }
 
         &:nth-child(5) {
-            left: 65%;
-            width: 20px;
-            height: 20px;
+            @apply left-[65%] w-[20px] h-[20px];
             animation-delay: 0s;
         }
 
         &:nth-child(6) {
-            left: 75%;
-            width: 110px;
-            height: 110px;
+            @apply left-[75%] w-[110px] h-[110px];
             animation-delay: 3s;
         }
 
         &:nth-child(7) {
-            left: 35%;
-            width: 150px;
-            height: 150px;
+            @apply left-[35%] w-[150px] h-[150px];
             animation-delay: 7s;
         }
 
         &:nth-child(8) {
-            left: 50%;
-            width: 25px;
-            height: 25px;
+            @apply left-[50%] w-[25px] h-[25px];
             animation-delay: 15s;
             animation-duration: 45s;
         }
 
         &:nth-child(9) {
-            left: 20%;
-            width: 15px;
-            height: 15px;
+            @apply left-[20%] w-[15px] h-[15px];
             animation-delay: 2s;
             animation-duration: 35s;
         }
 
         &:nth-child(10) {
-            left: 85%;
-            width: 150px;
-            height: 150px;
+            @apply left-[85%] w-[150px] h-[150px];
             animation-delay: 0s;
             animation-duration: 11s;
         }
@@ -251,77 +226,59 @@ $primary-color: #51BFA5;
             fa-icon {
                 @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-[1.04em] rounded-[40px];
 
-                &:hover {
-                    background: #fff !important;
-                }
-
                 &[class*="facebook"] {
-                    background: #2A61D6;
+                    @apply bg-brand-facebook;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #2A61D6;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-facebook;
                     }
                 }
 
                 &[class*="twitter"] {
-                    background: #3AA4F8;
+                    @apply bg-brand-twitter;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #3AA4F8;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-twitter;
                     }
                 }
 
                 &[class*="skype"] {
-                    background: #00AFF0;
+                    @apply bg-brand-skype;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #00AFF0;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-skype;
                     }
                 }
 
                 &[class*="linkedin"] {
-                    background: #0077B5;
+                    @apply bg-brand-linkedin;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #0077B5;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-linkedin;
                     }
                 }
 
                 &[class*="google"] {
-                    background: #F43846;
+                    @apply bg-brand-google;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #F43846;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-google;
                     }
                 }
 
                 &[class*="instagram"] {
-                    background: #8F614A;
+                    @apply bg-brand-instagram;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #8F614A;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-instagram;
                     }
                 }
 
                 &[class*="pinterest"] {
-                    background: #E1C013;
+                    @apply bg-brand-pinterest;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: #E1C013;
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-pinterest;
                     }
                 }
             }
