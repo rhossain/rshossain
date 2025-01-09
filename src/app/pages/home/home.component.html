@@ -1,103 +1,4 @@
-<a class="btn-default cursor-pointer w-[50px] h-[50px] fixed top-[64px] md:top-0 right-[30px] z-50 inline-flex items-center justify-center transition duration-300 mb-[16px] mx-0 rounded-full md:rounded-none md:rounded-b-full bg-zinc-800">
-    <!--        <i class="fa fa-sun absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></i>-->
-    <fa-icon [icon]="['far', 'sun']" class="mx-auto block text-center pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></fa-icon>
-</a>
-<header class="header lg:fixed lg:top-0 lg:bottom-0 lg:right-[30px] lg:z-[30] lg:flex lg:items-center lg:h-full">
-    <ul id="desktop-nav" class="icon-menu hidden md:block uppercase">
-        <li class="desktop-nav-item cursor-pointer w-[50px] h-[50px] relative flex items-center leading-[normal] transition duration-300 my-[16px] mx-0 rounded-full bg-zinc-800 active">
-            <fa-icon [icon]="['fas', 'house']" class="absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></fa-icon>
-            <!--                <i class="fa fa-home absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></i>-->
-            <div class="group block p-0 w-[50px] h-[50px]">
-                <h2 class="absolute text-center -z-10 block h-[50px] pr-[25px] pl-[30px] text-[15px] right-0 opacity-0 text-white leading-[50px] font-medium transition-all duration-300 rounded-[30px] group-hover:opacity-100 group-hover:right-[27px] group-hover:rounded-tl-[30px] group-hover:rounded-bl-[30px] group-hover:rounded-tr-none group-hover:rounded-br-none">Home</h2>
-            </div>
-        </li>
-        <li class="desktop-nav-item cursor-pointer w-[50px] h-[50px] relative flex items-center leading-[normal] transition duration-300 my-[16px] mx-0 rounded-full bg-zinc-800">
-            <fa-icon [icon]="['fas', 'user']" class="absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></fa-icon>
-            <!--                <i class="fa-solid fa-user absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></i>-->
-            <div class="group block p-0 w-[50px] h-[50px]">
-                <h2 class="absolute text-center -z-10 block h-[50px] pr-[25px] pl-[30px] text-[15px] right-0 opacity-0 text-white leading-[50px] font-medium transition-all duration-300 rounded-[30px] group-hover:opacity-100 group-hover:right-[27px] group-hover:rounded-tl-[30px] group-hover:rounded-bl-[30px] group-hover:rounded-tr-none group-hover:rounded-br-none">About</h2>
-            </div>
-        </li>
-        <li class="desktop-nav-item cursor-pointer w-[50px] h-[50px] relative flex items-center leading-[normal] transition duration-300 my-[16px] mx-0 rounded-full bg-zinc-800">
-            <fa-icon [icon]="['fas', 'briefcase']" class="absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></fa-icon>
-            <!--                <i class="fa fa-briefcase absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></i>-->
-            <div class="group block p-0 w-[50px] h-[50px]">
-                <h2 class="absolute text-center -z-10 block h-[50px] pr-[25px] pl-[30px] text-[15px] right-0 opacity-0 text-white leading-[50px] font-medium transition-all duration-300 rounded-[30px] group-hover:opacity-100 group-hover:right-[27px] group-hover:rounded-tl-[30px] group-hover:rounded-bl-[30px] group-hover:rounded-tr-none group-hover:rounded-br-none">Portfolio</h2>
-            </div>
-        </li>
-        <li class="desktop-nav-item cursor-pointer w-[50px] h-[50px] relative flex items-center leading-[normal] transition duration-300 my-[16px] mx-0 rounded-full bg-zinc-800">
-            <fa-icon [icon]="['fas', 'envelope-open']" class="absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></fa-icon>
-            <!--                <i class="fa fa-envelope-open absolute left-0 right-0 mx-auto block text-center top-[15px] pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></i>-->
-            <div class="group block p-0 w-[50px] h-[50px]">
-                <h2 class="absolute text-center -z-10 block h-[50px] pr-[25px] pl-[30px] text-[15px] right-0 opacity-0 text-white leading-[50px] font-medium transition-all duration-300 rounded-[30px] group-hover:opacity-100 group-hover:right-[27px] group-hover:rounded-tl-[30px] group-hover:rounded-bl-[30px] group-hover:rounded-tr-none group-hover:rounded-br-none">Contact</h2>
-            </div>
-        </li>
-    </ul>
-    <label class="btn-default block md:hidden absolute top-[12px] right-[30px] z-40 cursor-pointer px-3 py-5 rounded-[8px] bg-zinc-800" for="mobile-menu">
-        <input class="peer hidden" type="checkbox" id="mobile-menu" />
-        <div class="relative z-50 block h-[1px] w-6 bg-white bg-transparent content-[''] before:absolute before:top-[-0.40rem] before:z-50 before:block before:h-full before:w-full before:bg-white before:transition-all before:duration-200 before:ease-out before:content-[''] after:absolute after:right-0 after:bottom-[-0.40rem] after:block after:h-full after:w-full after:bg-white after:transition-all after:duration-200 after:ease-out after:content-[''] peer-checked:bg-transparent before:peer-checked:top-0 before:peer-checked:w-full before:peer-checked:rotate-45 before:peer-checked:transform after:peer-checked:bottom-0 after:peer-checked:w-full after:peer-checked:-rotate-45 after:peer-checked:transform">
-        </div>
-        <div class="fixed inset-0 z-40 hidden h-full w-full bg-white/20 backdrop-blur-sm peer-checked:block">
-            &nbsp;
-        </div>
-        <div class="fixed top-0 right-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0">
-            <div class="float-right min-h-full w-[85%] bg-zinc-950 px-6 pt-12 shadow-2xl">
-                <ul id="mobile-nav" class="max-w-[calc(100%-66px)]">
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'house']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">Home</span>
-                        </a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'user']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">About</span>
-                        </a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'briefcase']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">Portfolio</span>
-                        </a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'envelope-open']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">Contact</span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="socials flex flex-col">
-                    <p class="mb-[8px]">You can reach me:</p>
-                    <ul class="social-btn">
-                        <li>
-                            <a href="https://www.facebook.com/rhossainbd" target="_blank">
-                                <fa-icon class="facebook" [icon]="['fab', 'facebook-f']"></fa-icon>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://join.skype.com/invite/vwNHYMYW5jvJ" target="_blank">
-                                <fa-icon class="skype" [icon]="['fab', 'skype']"></fa-icon>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/rhossain" target="_blank">
-                                <fa-icon class="linkedin" [icon]="['fab', 'linkedin-in']"></fa-icon>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/rshossain.bd" target="_blank">
-                                <fa-icon class="instagram" [icon]="['fab', 'instagram']"></fa-icon>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </label>
-</header>
-
+<app-navigation></app-navigation>
 <main class="pages relative z-0 w-screen h-screen overflow-hidden">
     <section class="page page--current" id="home">
         <div class="bg-accent fixed w-full h-[200%] -rotate-[15deg] -top-1/2 -left-[83%] hidden lg:block"></div>
@@ -124,7 +25,7 @@
                     <h1 class="text-fs-51 text-accent font-Poppins relative uppercase font-bold leading-lh-62 pl-[70px] before:absolute before:left-0 before:top-[29px] before:h-4 before:w-40 before:rounded-10 md:text-[42px] md:pl-0 down-xl:before:hidden down-xl:pl-0 md:leading-[52px] down-md:text-fs-38 down-md:leading-lh-48 down-md:mt-29 down-md:mb-13 xs:text-fs-29 xs:leading-lh-39 xs:mt-18">
                         <span class="block text-white text-[20px] leading-[24px]">I'm</span>
                         Sazzad Hossain Robin
-                        <span class="block text-white">UI Developer</span>
+                        <span class="block text-black dark:text-white">UI Developer</span>
                     </h1>
                     <p class="font-Open-sans mt-[15px] mb-[28px] leading-[35px] down-lg:mt-2.5 down-lg:mb-23 down-lg:text-fs-15 down-lg:leading-lh-30">
                         I'm a UI developer from Bangladesh, focused on crafting clean & user-friendly experiences. I am passionate about implementing quality & best practices solutions that improve the lives of those around me.
