@@ -7,6 +7,24 @@
     :root {
         --color-primary-1: 81, 191, 165; // #51BFA5
 
+        --color-light-1: 180, 180, 180; // #B4B4B4
+        --color-light-2: 199, 200, 204; // #C7C8CC
+        --color-light-3: 221, 221, 221; // #DDDDDD
+        --color-light-4: 233, 239, 236; // #E9EFEC
+        --color-light-5: 238, 238, 238; // #EEEEEE
+        --color-light-6: 240, 240, 240; // #F0F0F0
+        --color-light-7: 245, 245, 245; // #F5F5F5
+        --color-light-8: 251, 251, 251; // #FBFBFB
+
+        --color-dark-1: 2, 4, 15; // #02040F
+        --color-dark-2: 10, 9, 8; // #0A0908
+        --color-dark-3: 25, 26, 25; // #191A19
+        --color-dark-4: 26, 26, 29; // #1A1A1D
+        --color-dark-5: 30, 32, 30; // #1E201E
+        --color-dark-6: 33, 33, 33; // #212121
+        --color-dark-7: 39, 40, 41; // #272829
+        --color-dark-8: 52, 49, 49; // #343131
+
         --color-brand-facebook: 42, 97, 214; // #2A61D6
         --color-brand-google: 244, 56, 70; // #F43846
         --color-brand-instagram: 143, 97, 74; // #8F614A
@@ -30,9 +48,35 @@
     @apply border-primary-1;
 }
 
-.btn-default {
-    &:hover {
-        @apply bg-primary-1;
+.btn {
+    &-icon {
+        @apply inline-flex items-center justify-center w-[50px] h-[50px] mb-[16px] mx-0 bg-light-3 cursor-pointer transition duration-300 dark:bg-dark-7;
+    
+        &:hover {
+            @apply bg-primary-1;
+        }
+
+        &.btn-switch {
+            @apply fixed top-[64px] md:top-0 right-[30px] z-50 rounded-full md:rounded-none md:rounded-b-full;
+        }
+    }
+}
+
+.desktop-nav {
+    &-item {
+        @apply relative flex items-center w-[50px] h-[50px] my-[16px] mx-0 bg-light-3 leading-[normal] rounded-full cursor-pointer transition duration-300 dark:bg-dark-7;
+    }
+
+    &-icon {
+        @apply absolute left-0 right-0 mx-auto block text-center top-[15px] text-dark-8 group-hover:text-dark-8 group-[.active]:text-dark-8 pointer-events-none transition-all duration-300 dark:text-white dark:group-hover:text-white dark:group-[.active]:text-white;
+    }
+
+    &-content {
+        @apply block p-0 w-[50px] h-[50px];
+    }
+
+    &-label {
+        @apply absolute text-center -z-10 block h-[50px] pr-[25px] pl-[30px] text-[15px] right-0 opacity-0 text-dark-8 leading-[50px] font-medium transition-all duration-300 rounded-[30px] group-hover:opacity-100 group-hover:right-[27px] group-hover:rounded-tl-[30px] group-hover:rounded-bl-[30px] group-hover:rounded-tr-none group-hover:rounded-br-none dark:text-white;
     }
 }
 
@@ -46,10 +90,10 @@
     }
 
     &-link {
-        @apply relative flex py-[4px] text-white text-[16px] whitespace-nowrap cursor-pointer;
+        @apply relative flex py-[4px] text-dark-1 text-[16px] whitespace-nowrap cursor-pointer dark:text-white;
 
         &::before, &::after {
-            @apply absolute top-full left-0 w-full h-[1px] bg-white pointer-events-none;
+            @apply absolute top-full left-0 w-full h-[1px] bg-white pointer-events-none dark:bg-dark-2;
         }
 
         &::before {
@@ -121,7 +165,7 @@
     @apply absolute top-0 left-0 w-full h-full overflow-hidden;
 
     li {
-        @apply absolute -bottom-[150px] block w-[20px] h-[20px] bg-white/20 list-none;
+        @apply absolute -bottom-[150px] block w-[20px] h-[20px] bg-black/10 list-none dark:bg-white/20;
         animation: animate 25s linear infinite;
 
         &:nth-child(1) {
