@@ -1,0 +1,13 @@
+<div class="relative w-full h-full overflow-hidden" [ngClass]="themeService.darkModeSignal()">
+    <div class="bg-white text-dark-1 dark:bg-dark-2 dark:text-white">
+
+        @if (isLive) {
+            <app-home></app-home>
+        } @else {
+            <app-maintenance></app-maintenance>
+        }
+    
+    </div>
+</div>
+
+<router-outlet />

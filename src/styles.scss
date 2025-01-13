@@ -1,0 +1,331 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary-1: 81, 191, 165; // #51BFA5
+
+        --color-light-1: 180, 180, 180; // #B4B4B4
+        --color-light-2: 199, 200, 204; // #C7C8CC
+        --color-light-3: 221, 221, 221; // #DDDDDD
+        --color-light-4: 233, 239, 236; // #E9EFEC
+        --color-light-5: 238, 238, 238; // #EEEEEE
+        --color-light-6: 240, 240, 240; // #F0F0F0
+        --color-light-7: 245, 245, 245; // #F5F5F5
+        --color-light-8: 251, 251, 251; // #FBFBFB
+
+        --color-dark-1: 2, 4, 15; // #02040F
+        --color-dark-2: 10, 9, 8; // #0A0908
+        --color-dark-3: 25, 26, 25; // #191A19
+        --color-dark-4: 26, 26, 29; // #1A1A1D
+        --color-dark-5: 30, 32, 30; // #1E201E
+        --color-dark-6: 33, 33, 33; // #212121
+        --color-dark-7: 39, 40, 41; // #272829
+        --color-dark-8: 52, 49, 49; // #343131
+
+        --color-brand-facebook: 42, 97, 214; // #2A61D6
+        --color-brand-google: 244, 56, 70; // #F43846
+        --color-brand-instagram: 143, 97, 74; // #8F614A
+        --color-brand-linkedin: 0, 119, 181; // #0077B5
+        --color-brand-pinterest: 225, 192, 19; // #E1C013
+        --color-brand-skype: 0, 175, 240; // #00AFF0
+        --color-brand-twitter: 58, 164, 248; // #3AA4F8
+    }
+}
+
+.bg-accent,
+.button:before {
+    @apply bg-primary-1;
+}
+
+.text-accent {
+    @apply text-primary-1;
+}
+
+.border-accent {
+    @apply border-primary-1;
+}
+
+.btn {
+    &-icon {
+        @apply inline-flex items-center justify-center w-[50px] h-[50px] mb-[16px] mx-0 bg-light-3 cursor-pointer transition duration-300 dark:bg-dark-7;
+    
+        &:hover {
+            @apply bg-primary-1;
+        }
+
+        &.btn-switch {
+            @apply fixed top-[64px] md:top-0 right-[30px] z-50 rounded-full md:rounded-none md:rounded-b-full;
+        }
+    }
+}
+
+.desktop-nav {
+    &-item {
+        @apply relative flex items-center w-[50px] h-[50px] my-[16px] mx-0 bg-light-3 leading-[normal] rounded-full cursor-pointer transition duration-300 dark:bg-dark-7;
+    }
+
+    &-icon {
+        @apply absolute left-0 right-0 mx-auto block text-center top-[15px] text-dark-8 group-hover:text-dark-8 group-[.active]:text-dark-8 pointer-events-none transition-all duration-300 dark:text-white dark:group-hover:text-white dark:group-[.active]:text-white;
+    }
+
+    &-content {
+        @apply block p-0 w-[50px] h-[50px];
+    }
+
+    &-label {
+        @apply absolute text-center -z-10 block h-[50px] pr-[25px] pl-[30px] text-[15px] right-0 opacity-0 text-dark-8 leading-[50px] font-medium transition-all duration-300 rounded-[30px] group-hover:opacity-100 group-hover:right-[27px] group-hover:rounded-tl-[30px] group-hover:rounded-bl-[30px] group-hover:rounded-tr-none group-hover:rounded-br-none dark:text-white;
+    }
+}
+
+.mobile-nav {
+    &-item {
+        @apply flex mb-[8px] last:mb-0 uppercase;
+    }
+
+    &-icon {
+        @apply text-primary-1 text-[16px] block mr-[10px];
+    }
+
+    &-link {
+        @apply relative flex py-[4px] text-dark-1 text-[16px] whitespace-nowrap cursor-pointer dark:text-white;
+
+        &::before, &::after {
+            @apply absolute top-full left-0 w-full h-[1px] bg-white pointer-events-none dark:bg-dark-2;
+        }
+
+        &::before {
+            content: '';
+            transform-origin: 100% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        &::after {
+            content: '';
+            top: calc(100% + 4px);
+            transform-origin: 0% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        &:hover {
+            &::before {
+                transform-origin: 0% 50%;
+                transform: scale3d(1, 1, 1);
+                transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+            }
+
+            &::after {
+                transform-origin: 100% 50%;
+                transform: scale3d(1, 1, 1);
+                transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+            }
+        }
+    }
+}
+
+.header {
+    ul.icon-menu {
+        li.desktop-nav-item {
+
+            &:hover,
+            &.active {
+                @apply bg-primary-1;
+
+                h2 {
+                    @apply bg-primary-1;
+                }
+            }
+        }
+    }
+}
+
+.page {
+    @apply absolute top-0 left-0 flex flex-col w-full h-full min-h-full invisible opacity-0 z-[1];
+
+    &.page--current {
+        @apply relative visible overflow-auto opacity-100;
+    }
+}
+
+.avatar {
+    .avatar-image {
+        animation: morph 8s ease-in-out infinite 1s;
+        background-blend-mode: multiply;
+        -webkit-box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+        -moz-box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+        box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+    }
+}
+
+.circles {
+    @apply absolute top-0 left-0 w-full h-full overflow-hidden;
+
+    li {
+        @apply absolute -bottom-[150px] block w-[20px] h-[20px] bg-black/10 list-none dark:bg-white/20;
+        animation: animate 25s linear infinite;
+
+        &:nth-child(1) {
+            @apply left-[25%] w-[80px] h-[80px];
+            animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+            @apply left-[10%] w-[20px] h-[20px];
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        &:nth-child(3) {
+            @apply left-[70%] w-[20px] h-[20px];
+            animation-delay: 4s;
+        }
+
+        &:nth-child(4) {
+            @apply left-[40%] w-[60px] h-[60px];
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        &:nth-child(5) {
+            @apply left-[65%] w-[20px] h-[20px];
+            animation-delay: 0s;
+        }
+
+        &:nth-child(6) {
+            @apply left-[75%] w-[110px] h-[110px];
+            animation-delay: 3s;
+        }
+
+        &:nth-child(7) {
+            @apply left-[35%] w-[150px] h-[150px];
+            animation-delay: 7s;
+        }
+
+        &:nth-child(8) {
+            @apply left-[50%] w-[25px] h-[25px];
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        &:nth-child(9) {
+            @apply left-[20%] w-[15px] h-[15px];
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        &:nth-child(10) {
+            @apply left-[85%] w-[150px] h-[150px];
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* SOCIAL BTN */
+.socials {
+    @apply absolute bottom-[30px] w-auto;
+}
+
+.social-btn {
+    @apply flex w-full text-center;
+
+    >li {
+        @apply inline-block;
+
+        >a {
+
+            >i,
+            fa-icon {
+                @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-white text-[1.04em] rounded-[40px];
+
+                &[class*="facebook"] {
+                    @apply bg-brand-facebook;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-facebook;
+                    }
+                }
+
+                &[class*="twitter"] {
+                    @apply bg-brand-twitter;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-twitter;
+                    }
+                }
+
+                &[class*="skype"] {
+                    @apply bg-brand-skype;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-skype;
+                    }
+                }
+
+                &[class*="linkedin"] {
+                    @apply bg-brand-linkedin;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-linkedin;
+                    }
+                }
+
+                &[class*="google"] {
+                    @apply bg-brand-google;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-google;
+                    }
+                }
+
+                &[class*="instagram"] {
+                    @apply bg-brand-instagram;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-instagram;
+                    }
+                }
+
+                &[class*="pinterest"] {
+                    @apply bg-brand-pinterest;
+
+                    &:hover, &:active, &:focus {
+                        @apply bg-white text-brand-pinterest;
+                    }
+                }
+            }
+        }
+    }
+}
