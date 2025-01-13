@@ -268,7 +268,7 @@
 
             >i,
             fa-icon {
-                @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-[1.04em] rounded-[40px];
+                @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-white text-[1.04em] rounded-[40px];
 
                 &[class*="facebook"] {
                     @apply bg-brand-facebook;
