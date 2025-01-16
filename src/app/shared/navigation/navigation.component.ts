@@ -18,10 +18,11 @@ import {
   faSkype,
 } from '@fortawesome/free-brands-svg-icons';
 import { ThemeService } from '../../services/theme.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })

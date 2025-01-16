@@ -2,12 +2,13 @@
     <div class="bg-white text-dark-1 dark:bg-dark-2 dark:text-white">
 
         @if (isLive) {
-            <app-home></app-home>
+            <app-navigation></app-navigation>
+            <main class="pages relative z-0 w-screen h-screen overflow-hidden">
+                <router-outlet></router-outlet>
+            </main>
         } @else {
             <app-maintenance></app-maintenance>
         }
     
     </div>
 </div>
-
-<router-outlet />
