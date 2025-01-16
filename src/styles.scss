@@ -6,6 +6,9 @@
 @layer base {
     :root {
         --color-primary-1: 81, 191, 165; // #51BFA5
+        --gold: #ffb338;
+        --light-shadow: #77571d;
+        --dark-shadow: #3e2904;
 
         --color-light-1: 180, 180, 180; // #B4B4B4
         --color-light-2: 199, 200, 204; // #C7C8CC
@@ -51,13 +54,43 @@
 .btn {
     &-icon {
         @apply inline-flex items-center justify-center w-[50px] h-[50px] mb-[16px] mx-0 bg-light-3 cursor-pointer transition duration-300 dark:bg-dark-7;
-    
+
         &:hover {
             @apply bg-primary-1;
         }
 
         &.btn-switch {
             @apply fixed top-[64px] md:top-0 right-[30px] z-50 rounded-full md:rounded-none md:rounded-b-full;
+        }
+    }
+}
+
+.text-variant-1 {
+    @apply relative mb-[.5em] bg-gradient-to-r from-white to-white text-[4rem] uppercase dark:from-dark-2 dark:to-dark-2;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:before,
+    &:after {
+        @apply absolute top-0 left-0;
+        content: attr(data-text);
+    }
+
+    &:before {
+        z-index: -1;
+        text-shadow: -0.001em -0.001em 1px rgba(255, 255, 255, .15);
+    }
+
+    &:after {
+        z-index: -2;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, .5), 20px 20px 20px rgba(0, 0, 0, .4), 30px 30px 30px rgba(0, 0, 0, .1);
+        mix-blend-mode: multiply;
+    }
+}
+.dark {
+    .text-variant-1 {
+        &:before {
+            text-shadow: -0.001em -0.001em 1px rgba(81, 191, 165, .85);
         }
     }
 }
@@ -92,7 +125,8 @@
     &-link {
         @apply relative flex py-[4px] text-dark-1 text-[16px] whitespace-nowrap cursor-pointer dark:text-white;
 
-        &::before, &::after {
+        &::before,
+        &::after {
             @apply absolute top-full left-0 w-full h-[1px] bg-white pointer-events-none dark:bg-dark-2;
         }
 
@@ -147,7 +181,39 @@
     @apply absolute top-0 left-0 flex flex-col w-full h-full min-h-full invisible opacity-0 z-[1];
 
     &.page--current {
-        @apply relative visible overflow-auto opacity-100;
+        @apply relative visible overflow-hidden opacity-100;
+    }
+
+    &-header {
+        @apply fixed w-full text-white text-center;
+        background: linear-gradient(60deg, rgba(81, 191, 165, 1) 0%, rgba(0, 172, 193, 1) 100%);
+
+        &-inner {
+            @apply flex justify-center w-full h-[100px] md:h-[170px] m-0 p-0;
+        }
+
+        --s: 4px;
+        --o: .5*var(--s);
+        font: clamp(5em, Min(65vh, 35vw), 39em)/0.75 bebas neue,sans-serif;
+    }
+
+    &-title {
+        @apply text-[32px] md:text-[50px] lg:text-[70px] text-center;
+        --sl: calc(50% - .5px), #0000 calc(50% + .5px);
+        place-self: center;
+        place-content: center;
+        padding: Round(up, .1em, var(4px)) .05em 0 0;
+        height: calc(Round(up, 1lh, var(--s)) - var(--o));
+        background:
+            linear-gradient(22.5deg, #fff var(--sl)) text, linear-gradient(22.5deg, #000 var(--sl)), linear-gradient(#2c4f46 50%, rgba(0, 0, 0, 0) 0) 0 0 / 1% var(--s);
+        color: #0000;
+        -webkit-text-stroke: #fff calc(var(--o));
+        text-transform: uppercase;
+        mix-blend-mode: screen
+    }
+
+    &-content {
+        @apply h-[calc(100%-150px)] md:h-[calc(100%-280px)] mt-[150px] md:mt-[280px] mb-[20px] mx-[24px] md:ml-[80px] md:mr-[90px] overflow-auto;
     }
 }
 
@@ -225,6 +291,127 @@
     }
 }
 
+/* SOCIAL BTN */
+.socials {
+    @apply absolute bottom-[30px] w-auto;
+}
+
+.social-btn {
+    @apply flex w-full text-center;
+
+    >li {
+        @apply inline-block;
+
+        >a {
+
+            >i,
+            fa-icon {
+                @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-white text-[1.04em] rounded-[40px];
+
+                &[class*="facebook"] {
+                    @apply bg-brand-facebook;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-facebook;
+                    }
+                }
+
+                &[class*="twitter"] {
+                    @apply bg-brand-twitter;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-twitter;
+                    }
+                }
+
+                &[class*="skype"] {
+                    @apply bg-brand-skype;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-skype;
+                    }
+                }
+
+                &[class*="linkedin"] {
+                    @apply bg-brand-linkedin;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-linkedin;
+                    }
+                }
+
+                &[class*="google"] {
+                    @apply bg-brand-google;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-google;
+                    }
+                }
+
+                &[class*="instagram"] {
+                    @apply bg-brand-instagram;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-instagram;
+                    }
+                }
+
+                &[class*="pinterest"] {
+                    @apply bg-brand-pinterest;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @apply bg-white text-brand-pinterest;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.waves {
+    @apply relative w-full h-[40px] md:h-[100px] -mb-[7px];
+}
+
+/* Animations */
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
 @keyframes animate {
     0% {
         transform: translateY(0) rotate(0deg);
@@ -253,79 +440,12 @@
     }
 }
 
-/* SOCIAL BTN */
-.socials {
-    @apply absolute bottom-[30px] w-auto;
-}
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
 
-.social-btn {
-    @apply flex w-full text-center;
-
-    >li {
-        @apply inline-block;
-
-        >a {
-
-            >i,
-            fa-icon {
-                @apply inline-block h-[35px] w-[35px] mx-[5px] my-0 leading-[35px] text-white text-[1.04em] rounded-[40px];
-
-                &[class*="facebook"] {
-                    @apply bg-brand-facebook;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-facebook;
-                    }
-                }
-
-                &[class*="twitter"] {
-                    @apply bg-brand-twitter;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-twitter;
-                    }
-                }
-
-                &[class*="skype"] {
-                    @apply bg-brand-skype;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-skype;
-                    }
-                }
-
-                &[class*="linkedin"] {
-                    @apply bg-brand-linkedin;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-linkedin;
-                    }
-                }
-
-                &[class*="google"] {
-                    @apply bg-brand-google;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-google;
-                    }
-                }
-
-                &[class*="instagram"] {
-                    @apply bg-brand-instagram;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-instagram;
-                    }
-                }
-
-                &[class*="pinterest"] {
-                    @apply bg-brand-pinterest;
-
-                    &:hover, &:active, &:focus {
-                        @apply bg-white text-brand-pinterest;
-                    }
-                }
-            }
-        }
+    100% {
+        transform: translate3d(85px, 0, 0);
     }
 }

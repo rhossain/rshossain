@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+
 import { ThemeService } from './services/theme.service';
+import { NavigationComponent } from './shared/navigation/navigation.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, CommonModule, HomeComponent, MaintenanceComponent],
+    imports: [RouterOutlet, CommonModule, NavigationComponent, MaintenanceComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
