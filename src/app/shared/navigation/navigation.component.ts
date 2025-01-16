@@ -18,16 +18,23 @@ import {
   faSkype,
 } from '@fortawesome/free-brands-svg-icons';
 import { ThemeService } from '../../services/theme.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
-  imports: [FontAwesomeModule, RouterLink],
+  imports: [FontAwesomeModule, RouterLink, RouterLinkActive],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
   themeService: ThemeService = inject(ThemeService);
+
+  navItems: any[] = [
+    { name: 'Home', link: '/home', iconGroup: 'fas', iconName: 'house' },
+    { name: 'About', link: '/about', iconGroup: 'fas', iconName: 'user' },
+    { name: 'Portfolio', link: '/portfolio', iconGroup: 'fas', iconName: 'briefcase' },
+    { name: 'Contact', link: '/contact', iconGroup: 'fas', iconName: 'envelope-open' }
+  ];
   
   toggleDarkMode() {
     this.themeService.updateDarkMode();
