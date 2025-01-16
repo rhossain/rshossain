@@ -13,32 +13,16 @@
         <fa-icon [icon]="['far', 'moon']" class="mx-auto block text-center pointer-events-none group-hover:text-white group-[.active]:text-white transition-all duration-300"></fa-icon>
     </a>
 }
-<header class="header lg:fixed lg:top-0 lg:bottom-0 lg:right-[30px] lg:z-[30] lg:flex lg:items-center lg:h-full">
+<header class="header md:fixed md:top-0 md:bottom-0 md:right-[30px] md:z-[30] md:flex md:items-center md:h-full">
     <ul id="desktop-nav" class="icon-menu hidden md:block uppercase">
-        <li class="desktop-nav-item active">
-            <fa-icon [icon]="['fas', 'house']" class="desktop-nav-icon"></fa-icon>
-            <div class="desktop-nav-content group">
-                <h2 class="desktop-nav-label">Home</h2>
-            </div>
-        </li>
-        <li class="desktop-nav-item">
-            <fa-icon [icon]="['fas', 'user']" class="desktop-nav-icon"></fa-icon>
-            <div class="desktop-nav-content group">
-                <h2 class="desktop-nav-label">About</h2>
-            </div>
-        </li>
-        <li class="desktop-nav-item">
-            <fa-icon [icon]="['fas', 'briefcase']" class="desktop-nav-icon"></fa-icon>
-            <div class="desktop-nav-content group">
-                <h2 class="desktop-nav-label">Portfolio</h2>
-            </div>
-        </li>
-        <li class="desktop-nav-item">
-            <fa-icon [icon]="['fas', 'envelope-open']" class="desktop-nav-icon"></fa-icon>
-            <div class="desktop-nav-content group">
-                <h2 class="desktop-nav-label">Contact</h2>
-            </div>
-        </li>
+        @for (item of navItems; track $index) {
+            <li class="desktop-nav-item" [routerLink]="item.link" routerLinkActive="active">
+                <fa-icon [icon]="[item.iconGroup, item.iconName]" class="desktop-nav-icon"></fa-icon>
+                <div class="desktop-nav-content group">
+                    <h2 class="desktop-nav-label">{{ item.name }}</h2>
+                </div>
+            </li>
+        }
     </ul>
     <label class="btn-icon block md:hidden absolute top-[12px] right-[30px] z-40 px-3 py-5 rounded-[8px]" for="mobile-menu">
         <input class="peer hidden" type="checkbox" id="mobile-menu" />
@@ -50,30 +34,14 @@
         <div class="fixed top-0 right-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0">
             <div class="float-right min-h-full w-[85%] bg-zinc-950 px-6 pt-12 shadow-2xl">
                 <ul id="mobile-nav" class="max-w-[calc(100%-66px)]">
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'house']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">Home</span>
-                        </a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'user']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">About</span>
-                        </a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'briefcase']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">Portfolio</span>
-                        </a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">
-                            <fa-icon [icon]="['fas', 'envelope-open']" class="mobile-nav-icon"></fa-icon>
-                            <span class="block">Contact</span>
-                        </a>
-                    </li>
+                    @for (item of navItems; track $index) {
+                        <li class="mobile-nav-item">
+                            <a [routerLink]="item.link" routerLinkActive="active" class="mobile-nav-link">
+                                <fa-icon [icon]="[item.iconGroup, item.iconName]" class="mobile-nav-icon"></fa-icon>
+                                <span class="block">{{ item.name }}</span>
+                            </a>
+                        </li>
+                    }
                 </ul>
                 <div class="socials flex flex-col">
                     <p class="mb-[8px]">You can reach me:</p>
