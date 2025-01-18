@@ -7,10 +7,11 @@ import {
   faDownload
 } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from '../../services/theme.service';
+import { SocialsComponent } from '../../shared/socials/socials.component';
 
 @Component({
   selector: 'app-home',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, SocialsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
