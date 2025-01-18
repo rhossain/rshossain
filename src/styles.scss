@@ -38,6 +38,10 @@
     }
 }
 
+html, body {
+    @apply text-dark-1 text-[14px] dark:text-white;
+}
+
 .bg-accent,
 .button:before {
     @apply bg-primary-1;
