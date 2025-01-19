@@ -55,6 +55,19 @@ html, body {
     @apply border-primary-1;
 }
 
+.section-title {
+    @apply mb-[16px];
+    
+    h3 {
+        @apply relative z-[1] inline-block m-0 text-[30px] font-semibold uppercase;
+
+        &::after {
+            @apply absolute -top-[4px] md:-top-[8px] left-0 md:-left-[15px] -z-[1] w-[44px] h-[44px] bg-primary-1 rounded-full opacity-70 dark:opacity-100;
+            content: '';
+        }
+    }
+}
+
 .btn {
     &-icon {
         @apply inline-flex items-center justify-center w-[50px] h-[50px] mb-[16px] mx-0 bg-light-3 cursor-pointer transition duration-300 dark:bg-dark-7;
@@ -217,7 +230,7 @@ html, body {
     }
 
     &-content {
-        @apply h-[calc(100%-150px)] md:h-[calc(100%-280px)] mt-[150px] md:mt-[280px] mb-[20px] mx-[24px] md:ml-[80px] md:mr-[90px] overflow-auto;
+        @apply h-[calc(100%-150px)] md:h-[calc(100%-280px)] mt-[150px] md:mt-[280px] mb-[20px] ml-[9px] mr-[18px] pl-[15px] pr-[6px] md:ml-[65px] md:mr-[84px] overflow-auto;
     }
 }
 
