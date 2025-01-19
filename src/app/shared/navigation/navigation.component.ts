@@ -11,18 +11,13 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
-import {
-  faFacebookF,
-  faInstagram,
-  faLinkedinIn,
-  faSkype,
-} from '@fortawesome/free-brands-svg-icons';
 import { ThemeService } from '../../services/theme.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SocialsComponent } from '../socials/socials.component';
 
 @Component({
   selector: 'app-navigation',
-  imports: [FontAwesomeModule, RouterLink, RouterLinkActive],
+  imports: [FontAwesomeModule, RouterLink, RouterLinkActive, SocialsComponent],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
@@ -48,11 +43,7 @@ export class NavigationComponent {
       faHouse,
       faSun,
       faMoon,
-      faUser,
-      faFacebookF,
-      faInstagram,
-      faLinkedinIn,
-      faSkype
+      faUser
     );
   }
 }

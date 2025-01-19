@@ -41,9 +41,113 @@
     
     </div>
     
-    <div class="page-content flex items-center justify-center">
-        <h3 class="text-variant-1 text-center" data-text="Under Development">
-            Under Development
-        </h3>
+    <div class="page-content">
+        <!-- Personal Info -->
+        <div class="flex flex-col md:flex-row md:gap-[24px] mb-[70px] pt-[16px]">
+            <div class="basis-full lg:basis-7/12 xl:basis-1/2 mb-[50px] lg:mb-0">
+                <img class="max-w-full mask1" src="https://i.ibb.co.com/CmNgWtD/sazzad-hossain-01.jpg" alt="Sazzad Hossain Robin" />
+            </div>
+
+            <div class="basis-full lg:basis-5/12 xl:basis-1/2">
+                <div class="section-title">
+                    <h3>Personal Info</h3>
+                </div>
+                <div class="flex pb-[20px]">
+                    <div class="basis-1/2 [&>div]:pb-[20px] [&>div:last-child]:pb-0">
+                        <div>
+                            <span class="opacity-80">First Name: </span>
+                            <span class="block font-semibold">Sazzad</span>
+                        </div>
+                        <div>
+                            <span class="opacity-80">Nationality: </span>
+                            <span class="block font-semibold">Bangladeshi</span>
+                        </div>
+                        <div>
+                            <span class="opacity-80">Phone: </span>
+                            <span class="block font-semibold">+880 1713 204 761</span>
+                        </div>
+                        <div>
+                            <span class="opacity-80">Address: </span>
+                            <span class="block font-semibold">Dhaka</span>
+                        </div>
+                    </div>
+                    <div class="basis-1/2 [&>div]:pb-[20px] [&>div:last-child]:pb-0">
+                        <div>
+                            <span class="opacity-80">Last Name: </span>
+                            <span class="block font-semibold">Hossain</span>
+                        </div>
+                        <div>
+                            <span class="opacity-80">Birthday: </span>
+                            <span class="block font-semibold">08 January, 1985</span>
+                        </div>
+                        <div>
+                            <span class="opacity-80">Email: </span>
+                            <span class="block font-semibold">rshossain.bd&#64;gmail.com</span>
+                        </div>
+                        <div>
+                            <span class="opacity-80">Langages: </span>
+                            <span class="block font-semibold">Bangla, English</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="socials !relative !bottom-0  flex flex-col">
+                    <p class="mb-[8px]">Social connections:</p>
+                    <app-socials></app-socials>
+                </div>
+                <button class="button group cursor-pointer overflow-hidden inline-block leading-[1.4] border border-solid border-accent rounded-[30px] text-ellipsis text-center align-middle select-none transition-all duration-[.25s] ease-in-out uppercase no-underline relative z-10 mt-[40px] py-[16px] pr-[70px] pl-[35px] text-[15px] font-semibold text-white bg-transparent outline-0 before:absolute before:-z-10 before:left-0 before:right-0 before:top-0 before:bottom-0 before:translate-x-full hover:before:translate-x-0 before:transition before:duration-300 before:ease-out">
+                    <span class="relative z-20 text-dark-1 dark:text-white">download CV</span>
+                    <span class="absolute -right-px bottom-0 w-[55px] h-[55px] flex items-center justify-center rounded-full text-dark-1 text-[19px] bg-accent dark:text-white">
+                        <fa-icon [icon]="['fas', 'download']"></fa-icon>
+                    </span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row lg:gap-[24px]">
+            <div class="w-full lg:w-1/2 mb-[50px] lg:mb-0">
+                <div class="section-title">
+                    <h3>Experience</h3>
+                </div>
+
+                <ul>
+                    @for (item of experienceItems; track $index) {
+                        <li class="relative mb-[50px] pr-[20px] pl-[60px] after:absolute after:top-0 after:left-[20px] after:w-[1px] after:h-full after:bg-light-3 dark:after:bg-dark-8">
+                            <div class="absolute left-0 z-10 w-[40px] h-[40px] bg-white text-primary-1 leading-[40px] text-center border border-solid border-light-3 rounded-full dark:bg-dark-2 dark:border-dark-8">
+                                <fa-icon [icon]="['fas', 'briefcase']"></fa-icon>
+                            </div>
+                            <span class="text-[12px] py-1 px-[10px] inline-block mb-[10px] rounded-[20px] font-semibold bg-light-3 opacity-80 uppercase dark:bg-dark-8">
+                                {{ item.startDate }} - {{ item.endDate }}
+                            </span>
+                            <h5 class="uppercase text-[16px] mt-[7px] mb-[2px]">{{ item.designation }}</h5>
+                            <h4 class="mb-[12px] opacity-80 font-semibold text-[16px]">{{ item.company }}</h4>
+                            <p>
+                                {{ item.shortDesc }}
+                            </p>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="w-full lg:w-1/2">
+                <div class="section-title">
+                    <h3>Education</h3>
+                </div>
+
+                <ul>
+                    @for (item of educationItems; track $index) {
+                        <li class="relative mb-[50px] pr-[20px] pl-[60px] after:absolute after:top-0 after:left-[20px] after:w-[1px] after:h-full after:bg-light-3 dark:after:bg-dark-8">
+                            <div class="absolute left-0 z-10 w-[40px] h-[40px] bg-white text-primary-1 leading-[40px] text-center border border-solid border-light-3 rounded-full dark:bg-dark-2 dark:border-dark-8">
+                                <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>
+                            </div>
+                            <span class="text-[12px] py-1 px-[10px] inline-block mb-[10px] rounded-[20px] font-semibold bg-light-3 opacity-80 uppercase dark:bg-dark-8">
+                                {{ item.year }}
+                            </span>
+                            <h5 class="uppercase text-[16px] mt-[7px] mb-[2px]">{{ item.name }}</h5>
+                            <h4 class="mb-[12px] opacity-80 font-semibold text-[16px]">{{ item.institute }}, {{ item.address }}</h4>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
