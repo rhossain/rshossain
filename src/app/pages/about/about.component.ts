@@ -10,10 +10,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from '../../services/theme.service';
 import { SocialsComponent } from '../../shared/socials/socials.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about',
-  imports: [FontAwesomeModule, SocialsComponent],
+  imports: [CommonModule, FontAwesomeModule, SocialsComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
@@ -70,6 +71,19 @@ export class AboutComponent {
       institute: 'NCC Education',
       address: 'UK'
     }
+  ];
+
+  skillItems: any[] = [
+    { name: 'HTML', level: '92', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'CSS3', level: '92', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'SCSS', level: '90', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'Tailwind CSS', level: '88', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'Bootstrap', level: '85', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'JavaScript', level: '50', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'Angular', level: '40', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'Angular Material', level: '50', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'Bangla', level: '95', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'English', level: '60', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
   ];
 
   constructor(library: FaIconLibrary) {
