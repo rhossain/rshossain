@@ -9,10 +9,11 @@ import {
   faLinkedinIn,
   faSkype
 } from '@fortawesome/free-brands-svg-icons';
+import { SocialsComponent } from '../../shared/socials/socials.component';
 
 @Component({
   selector: 'app-maintenance',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, SocialsComponent],
   templateUrl: './maintenance.component.html',
   styleUrl: './maintenance.component.scss'
 })
