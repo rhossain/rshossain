@@ -6,9 +6,6 @@
 @layer base {
     :root {
         --color-primary-1: 81, 191, 165; // #51BFA5
-        --gold: #ffb338;
-        --light-shadow: #77571d;
-        --dark-shadow: #3e2904;
 
         --color-light-1: 180, 180, 180; // #B4B4B4
         --color-light-2: 199, 200, 204; // #C7C8CC
@@ -129,6 +126,14 @@ html, body {
 
     &-inner {
         @apply w-[80px] h-[6px] bg-primary-1 transition-all duration-1000;
+    }
+}
+
+.chip {
+    &-default {
+        &.p-chip {
+            @apply mr-[8px] last:mr-0 mb-[8px] bg-light-3 text-dark-1 dark:bg-dark-8 dark:text-white;
+        }
     }
 }
 
