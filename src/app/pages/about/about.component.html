@@ -167,12 +167,15 @@
                         </div>
                     }
                     @if (item.name === 'Bangla' || item.name === 'English') {
-                        <div class="progress-bar-wrapper mt-[30px] last:mt-0">
-                            <h6 class="uppercase">{{ item.name }}</h6>
-                            <span>{{ item.level }}%</span>
-                            <div class="progress-bar">
-                                <div class="progress-bar-inner" [ngStyle]="{'width': item.level+'%'}"></div>
-                            </div>
+                        <div class="inline-flex flex-col items-center gap-x-[8px] mt-[30px] mr-[24px] last:mr-0">
+
+                            @if(themeService.darkModeSignal() === "dark") {
+                                <p-knob class="knob-default" rangeColor="#343131" valueColor="#51BFA5" textColor="#ffffff" [(ngModel)]="item.level" valueTemplate="{value}%" [readonly]="true" />
+                            } @else {
+                                <p-knob class="knob-default" rangeColor="#DDDDDD" valueColor="#51BFA5" textColor="#02040F" [(ngModel)]="item.level" valueTemplate="{value}%" [readonly]="true" />
+                            }
+                            
+                            <span class="block">{{ item.name }}</span>
                         </div>
                     }
                 }
@@ -185,9 +188,7 @@
 
                 @for (item of skillItems; track $index) {
                     @if (item.name != 'Bangla' && item.name != 'English') {
-                        <div class="inline-flex items-center justify-center mb-[4px] mr-[4px] px-[12px] py-[4px] bg-light-3 rounded dark:bg-dark-8">
-                            <span>{{ item.name }}</span>
-                        </div>
+                        <p-chip class="chip-default" [label]="item.name" [image]="item.iconName" />
                     }
                 }
             </div>
