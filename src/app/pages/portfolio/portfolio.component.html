@@ -41,9 +41,39 @@
     
     </div>
     
-    <div class="page-content flex items-center justify-center">
-        <h3 class="text-variant-1 text-center" data-text="Under Development">
-            Under Development
-        </h3>
+    <div class="page-content">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            @for (item of portfolioItems; track $index) {
+                <div class="img-item circle effect10 top_to_bottom">
+                    <a (click)="showModal()">
+                        <div class="img">
+                            <img [src]="item.featuredImg" [alt]="item.name">
+                        </div>
+                        <div class="info">
+                            <h4>{{ item.name }}</h4>
+                            <p>{{ item.category }}</p>
+                        </div>
+                    </a>
+                </div>
+
+                <p-dialog header="Header" [modal]="true" [(visible)]="visibleModal" [style]="{ width: '70vw' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+                    <ng-template #header>
+                        <h4>Project: {{ item.name }}</h4>
+                    </ng-template>
+                    <div class="grid grid-cols-1 gap-[20px] lg:grid-cols-2 lg:gap-[16px]">
+                        <div class="img">
+                            <img src="../../../assets/images/portfolio/nopkalles.jpeg" alt="img">
+                        </div>
+                        <div class="info">
+                            <h4>NopKalleys</h4>
+                            <p>Ecommerce</p>
+                            @for (item of item.galleryImg; track $index) {
+                                <img [src]="item" alt="img">
+                            }
+                        </div>
+                    </div>
+                </p-dialog>
+            }
+        </div>
     </div>
 </section>
