@@ -5,74 +5,93 @@
         <div class="page-header-inner">
             <h1 class="page-title">Portfolio</h1>
         </div>
-    
+
         <!--Waves Container-->
         <div>
             @if(themeService.darkModeSignal() === "dark") {
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(10, 9, 8,0.7" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(10, 9, 8,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(10, 9, 8,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#0A0908" />
-                    </g>
-                </svg>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(10, 9, 8,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(10, 9, 8,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(10, 9, 8,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#0A0908" />
+                </g>
+            </svg>
             } @else {
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-                    </g>
-                </svg>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
             }
-            
+
         </div>
         <!--Waves end-->
-    
+
     </div>
-    
+
     <div class="page-content">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             @for (item of portfolioItems; track $index) {
-                <div class="img-item circle effect10 top_to_bottom">
-                    <a (click)="showModal()">
-                        <div class="img">
-                            <img [src]="item.featuredImg" [alt]="item.name">
-                        </div>
-                        <div class="info">
-                            <h4>{{ item.name }}</h4>
-                            <p>{{ item.category }}</p>
-                        </div>
-                    </a>
-                </div>
-
-                <p-dialog header="Header" [modal]="true" [(visible)]="visibleModal" [style]="{ width: '70vw' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
-                    <ng-template #header>
-                        <h4>Project: {{ item.name }}</h4>
-                    </ng-template>
-                    <div class="grid grid-cols-1 gap-[20px] lg:grid-cols-2 lg:gap-[16px]">
-                        <div class="img">
-                            <img src="../../../assets/images/portfolio/nopkalles.jpeg" alt="img">
-                        </div>
-                        <div class="info">
-                            <h4>NopKalleys</h4>
-                            <p>Ecommerce</p>
-                            @for (item of item.galleryImg; track $index) {
-                                <img [src]="item" alt="img">
-                            }
-                        </div>
+            <div class="img-item circle effect10 top_to_bottom">
+                <a (click)="showModal()">
+                    <div class="img">
+                        <img [src]="item.featuredImg" [alt]="item.name">
                     </div>
-                </p-dialog>
+                    <div class="info">
+                        <h4>{{ item.name }}</h4>
+                        <p>{{ item.category }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <p-dialog header="Header" [modal]="true" [(visible)]="visibleModal" [style]="{ width: '70vw' }"
+                [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+                <ng-template #header>
+                    <h4>Project: {{ item.name }}</h4>
+                </ng-template>
+                <div class="grid grid-cols-1 gap-[20px] lg:grid-cols-2 lg:gap-[16px]">
+                    <div>
+                        <swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff; --swiper-navigation-size: 36px"
+                            class="swiperImages" thumbs-swiper=".swiperThumbs" space-between="10" navigation="true">
+                            @for (item of item.galleryImg; track $index) {
+                                <swiper-slide>
+                                    <img [src]="item" />
+                                </swiper-slide>
+                            }
+                        </swiper-container>
+
+                        <swiper-container class="swiperThumbs py-[10px]" space-between="10" slides-per-view="3" free-mode="true"
+                            watch-slides-progress="true">
+                            @for (item of item.galleryImg; track $index) {
+                                <swiper-slide>
+                                    <img [src]="item" />
+                                </swiper-slide>
+                            }
+                        </swiper-container>
+                    </div>
+                    <div class="info">
+                        <h4>NopKalleys</h4>
+                        <p>Ecommerce</p>
+                        <!-- @for (item of item.galleryImg; track $index) {
+                                <img [src]="item" alt="img">
+                            } -->
+                    </div>
+                </div>
+            </p-dialog>
             }
         </div>
     </div>
