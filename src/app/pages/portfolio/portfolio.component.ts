@@ -1,4 +1,4 @@
-import { Component, inject, model } from '@angular/core';
+import { Component, inject, model, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ThemeService } from '../../services/theme.service';
 
@@ -6,7 +6,8 @@ import { ThemeService } from '../../services/theme.service';
   selector: 'app-portfolio',
   imports: [DialogModule],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss'
+  styleUrl: './portfolio.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PortfolioComponent {
   visibleModal: boolean = false;
