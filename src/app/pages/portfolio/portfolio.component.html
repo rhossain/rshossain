@@ -58,7 +58,7 @@
                 </a>
             </div>
 
-            <p-dialog header="Header" [modal]="true" [(visible)]="visibleModal" [style]="{ width: '70vw' }"
+            <p-dialog header="Header" [modal]="true" [(visible)]="visibleModal" class="dialog-default" [style]="{ width: '70vw' }"
                 [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
                 <ng-template #header>
                     <h4>Project: {{ item.name }}</h4>
