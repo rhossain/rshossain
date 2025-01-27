@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -11,10 +12,12 @@ import {
 import { ThemeService } from '../../services/theme.service';
 import { SocialsComponent } from '../../shared/socials/socials.component';
 import { CommonModule } from '@angular/common';
+import { ChipModule } from 'primeng/chip';
+import { KnobModule } from 'primeng/knob';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, FontAwesomeModule, SocialsComponent],
+  imports: [CommonModule, FormsModule, ChipModule, KnobModule, FontAwesomeModule, SocialsComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
@@ -74,14 +77,15 @@ export class AboutComponent {
   ];
 
   skillItems: any[] = [
-    { name: 'HTML', level: '92', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'CSS3', level: '92', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'SCSS', level: '90', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'Tailwind CSS', level: '88', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'Bootstrap', level: '85', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'JavaScript', level: '50', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'Angular', level: '40', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
-    { name: 'Angular Material', level: '50', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
+    { name: 'HTML', level: '92', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/html.png', visibility: 'show' },
+    { name: 'CSS3', level: '92', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/css.png', visibility: 'show' },
+    { name: 'SCSS', level: '90', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/sass.png', visibility: 'show' },
+    { name: 'Tailwind CSS', level: '88', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/tailwind-css.png', visibility: 'show' },
+    { name: 'Bootstrap', level: '85', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/bootstrap.png', visibility: 'show' },
+    { name: 'JavaScript', level: '50', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/javascript.png', visibility: 'show' },
+    { name: 'Angular', level: '40', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/angular.png', visibility: 'show' },
+    { name: 'Angular Material', level: '50', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/material.png', visibility: 'show' },
+    { name: 'Git', level: '85', rating: '5', experience: '17', iconGroup: '', iconName: '../../../assets/images/icons/git.png', visibility: 'show' },
     { name: 'Bangla', level: '95', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
     { name: 'English', level: '60', rating: '5', experience: '17', iconGroup: '', iconName: '', visibility: 'show' },
   ];
