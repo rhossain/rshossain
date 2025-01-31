@@ -139,6 +139,50 @@ html, body {
     }
 }
 
+p-dialog {
+    &.dialog-default {
+        &[ng-reflect-visible="false"] {
+            @apply absolute;
+        }
+
+        .p-dialog {
+            @apply bg-light-5 text-dark-1 dark:bg-dark-3 dark:text-white;
+    
+            .p-button-text.p-button-secondary {
+                @apply text-dark-8 dark:text-light-1;
+    
+                &:not(:disabled) {
+                    &:hover {
+                        @apply bg-light-8 dark:bg-dark-7;
+                    }
+    
+                    &:focus-visible {
+                        @apply outline-dark-8 dark:outline-light-1;
+                    }
+                }
+            }
+        }
+    
+        &.no-title {
+            .p-dialog {
+                @apply relative;
+    
+                .p-dialog-header {
+                    @apply absolute top-[8px] right-[8px] p-0;
+    
+                    .p-dialog-title {
+                        @apply hidden;
+                    }
+                }
+    
+                .p-dialog-content {
+                    @apply p-[16px];
+                }
+            }
+        }
+    }
+}
+
 .desktop-nav {
     &-item {
         @apply relative flex items-center w-[50px] h-[50px] my-[16px] mx-0 bg-light-3 leading-[normal] rounded-full cursor-pointer transition duration-300 dark:bg-dark-7;
@@ -495,8 +539,8 @@ html, body {
 }
 
 .img-item {
-    --img-width: 250px;
-    --img-height: 250px;
+    --img-width: 400px;
+    --img-height: auto;
     --img-radius: 8px;
 
     @apply relative;
@@ -505,10 +549,12 @@ html, body {
     transition: all 0.35s ease-in-out;
 
     &.circle {
-        @apply relative w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+        @apply relative max-w-full w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+        aspect-ratio: auto 1 / 1;
 
         .img {
-            @apply relative w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+            @apply relative max-w-full w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+            aspect-ratio: auto 1 / 1;
 
             &:before {
                 @apply absolute block w-full h-full rounded-[var(--img-radius)];
@@ -561,7 +607,7 @@ html, body {
                 }
 
                 p {
-                    @apply text-dark-4 text-[12px] italic border-t border-solid border-black/50 dark:text-light-4 dark:border-white/50;
+                    @apply text-dark-4 text-[12px] italic uppercase border-t border-solid border-black/50 dark:text-light-4 dark:border-white/50;
                 }
             }
 
