@@ -44,12 +44,43 @@
     </div>
 
     <div class="page-content">
+        @for (item of projects; track $index) {
+            <p>{{ item.name }}</p>
+            <p>{{ item.website }}</p>
+            <p>{{ item.client }}</p>
+            <div
+            *ngIf="item.shortDescription"
+            [innerHTML]="item.shortDescription | blockToHtml"
+            ></div>
+            <div
+            *ngIf="item.longDescription"
+            [innerHTML]="item.longDescription | blockToHtml"
+            ></div>
+            <p>{{ item.category }}</p>
+            <p>{{ item.technologies }}</p>
+            <div class="flex gap-1 mb-2 overflow-auto">
+                @for (img of item.gallery; track $index) {
+                    <img [src]="getImageUrl(img)" [alt]="item.name" class="max-w-32" />
+                }
+            </div>
+            <img [src]="getImageUrl(item.featuredImage)" [alt]="item.name" class="max-w-60" />
+        }
+        <!-- <div *ngFor="let item of projects; let i = index">
+            <p>{{ item.name }}</p>
+            <p>{{ item.website }}</p>
+            <p>{{ item.shortDescription }}</p>
+            <p>{{ item.longDescription }}</p>
+            <p>{{ item.client }}</p>
+            <div *ngFor="let img of item.gallery;">
+
+            </div>
+        </div> -->
         <div class="grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-3">
-            @for (item of portfolioItems; track $index) {
+            @for (item of projects; track $index) {
             <div class="img-item circle effect10 top_to_bottom">
                 <a (click)="showModal()">
                     <div class="img">
-                        <img [src]="item.featuredImg" [alt]="item.name">
+                        <img [src]="getImageUrl(item.featuredImage)" [alt]="item.name" />
                     </div>
                     <div class="info">
                         <h4>{{ item.name }}</h4>

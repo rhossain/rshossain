@@ -1,17 +1,23 @@
-import { Component, inject, model, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, inject, model, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ThemeService } from '../../services/theme.service';
+import { SanityService } from '../../services/sanity.service';
+import { Project } from '../../model/types';
+import { CommonModule } from '@angular/common';
+import { BlockToHtmlPipe } from "../../shared/block-to-html.pipe";
 
 @Component({
   selector: 'app-portfolio',
-  imports: [DialogModule],
+  imports: [DialogModule, CommonModule, BlockToHtmlPipe],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit {
   visibleModal: boolean = false;
   images = model([]);
+  projects: Project[] = [];
+  project: any;
   themeService: ThemeService = inject(ThemeService);
 
   responsiveOptions: any[] = [
@@ -38,8 +44,7 @@ export class PortfolioComponent {
         '../../../assets/images/portfolio/nopkalles-003.jpg'
       ],
       shortDesc: `NopKalles is an eCommerce theme developed by using NopCommerce. The theme has some useful plugin that will enrich your e-commerce site with "out of box" features. It is a plug and play theme. We will try our best to make it better and release the future version from time to time following your feedback.`,
-      longDesc: `Technical responsibilities:
-      - Developing the theme from scratch
+      longDesc: `- Developing the theme from scratch
       - All UI related works with clean code
       - Custom design for plugins used
       - Ensuring proper RTL support
@@ -61,8 +66,7 @@ export class PortfolioComponent {
         '../../../assets/images/portfolio/fortune-003.jpg'
       ],
       shortDesc: `Fortune is an ecommerce theme developed by using NopCommerce. The theme has some useful plugin that will enrich your e-commerce site with "out of box" features. It is a plug and play theme.`,
-      longDesc: `Technical responsibilities:
-      - Developing the theme from scratch
+      longDesc: `- Developing the theme from scratch
       - All UI related works with clean code
       - Custom design for plugins used
       - Ensuring proper RTL support
@@ -151,6 +155,21 @@ export class PortfolioComponent {
       ]
     }
   ];
+
+  constructor(private sanityService: SanityService) {}
+  ngOnInit(): void {
+    this.getAllProjects();
+    console.log(this.getAllProjects());
+  }
+
+  async getAllProjects(): Promise<Project[]> {
+    this.projects = await this.sanityService.getAllProjects();
+    return this.projects;
+  }
+
+  getImageUrl(image: any) {
+    return this.sanityService.getImageUrlBuilder(image).url();
+  }
   
   showModal() {
       this.visibleModal = true;
