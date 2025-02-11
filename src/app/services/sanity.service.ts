@@ -36,7 +36,7 @@ export class SanityService {
   async getAllProjects(): Promise<Project[]> {
     return await this.sanityClient().fetch(
       `*[_type == "project"]{
-        name, shortDescription, longDescription, website, client, year, duration, category, technologies, featuredImage, gallery
+        name, shortDescription, longDescription, website, client, year, duration, category, technologies, featuredImage, gallery, priority
       }`
     );
   }

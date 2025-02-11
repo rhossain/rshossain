@@ -13,7 +13,8 @@ export interface Project {
     category: String,
     technologies: [],
     featuredImage: SanityImageSource,
-    gallery: []
+    gallery: [],
+    priority: String
 }
 
 export interface Post {

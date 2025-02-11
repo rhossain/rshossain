@@ -5,10 +5,11 @@ import { SanityService } from '../../services/sanity.service';
 import { Project } from '../../model/types';
 import { CommonModule } from '@angular/common';
 import { BlockToHtmlPipe } from "../../shared/block-to-html.pipe";
+import { OrderByPipe } from "../../shared/order-by.pipe";
 
 @Component({
   selector: 'app-portfolio',
-  imports: [DialogModule, CommonModule, BlockToHtmlPipe],
+  imports: [DialogModule, CommonModule, BlockToHtmlPipe, OrderByPipe],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -19,6 +20,7 @@ export class PortfolioComponent implements OnInit {
   projects: Project[] = [];
   project: any;
   themeService: ThemeService = inject(ThemeService);
+  priority: string='priority';
 
   responsiveOptions: any[] = [
       {
