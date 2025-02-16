@@ -54,6 +54,16 @@ html, body {
     @apply border-primary-1;
 }
 
+.list {
+    &-disc {
+        &-child {
+            ul {
+                @apply ml-[14px] list-disc;
+            }
+        }
+    }
+}
+
 .section-title {
     @apply mb-[16px];
     

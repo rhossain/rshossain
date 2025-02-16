@@ -15,12 +15,12 @@ import { OrderByPipe } from "../../shared/order-by.pipe";
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PortfolioComponent implements OnInit {
-  visibleModal: boolean = false;
   images = model([]);
   projects: Project[] = [];
   project: any;
   themeService: ThemeService = inject(ThemeService);
-  priority: string='priority';
+  priority: string = 'priority';
+  visibleDialogs: { [key: number]: boolean } = {};
 
   responsiveOptions: any[] = [
       {
@@ -172,8 +172,12 @@ export class PortfolioComponent implements OnInit {
   getImageUrl(image: any) {
     return this.sanityService.getImageUrlBuilder(image).url();
   }
-  
-  showModal() {
-      this.visibleModal = true;
+
+  showDialog(itemId: number) {
+    this.visibleDialogs[itemId] = true;
+  }
+
+  hideDialog(itemId: number) {
+    this.visibleDialogs[itemId] = false;
   }
 }
