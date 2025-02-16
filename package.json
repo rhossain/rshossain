@@ -23,11 +23,15 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@portabletext/to-html": "^2.0.13",
+    "@portabletext/types": "^2.0.13",
     "@primeng/themes": "^19.0.5",
+    "@sanity/client": "^6.27.2",
+    "@sanity/image-url": "^1.1.0",
+    "@types/node": "^22.12.0",
     "primeng": "^19.0.5",
     "rxjs": "~7.8.0",
     "swiper": "^11.2.1",
-    "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
