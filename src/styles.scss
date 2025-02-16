@@ -54,6 +54,16 @@ html, body {
     @apply border-primary-1;
 }
 
+.list {
+    &-disc {
+        &-child {
+            ul {
+                @apply ml-[14px] list-disc;
+            }
+        }
+    }
+}
+
 .section-title {
     @apply mb-[16px];
     
@@ -135,6 +145,50 @@ html, body {
     &-default {
         &.p-chip {
             @apply mr-[8px] last:mr-0 mb-[8px] bg-light-3 text-dark-1 dark:bg-dark-8 dark:text-white;
+        }
+    }
+}
+
+p-dialog {
+    &.dialog-default {
+        &[ng-reflect-visible="false"] {
+            @apply absolute;
+        }
+
+        .p-dialog {
+            @apply bg-light-5 text-dark-1 dark:bg-dark-3 dark:text-white;
+    
+            .p-button-text.p-button-secondary {
+                @apply text-dark-8 dark:text-light-1;
+    
+                &:not(:disabled) {
+                    &:hover {
+                        @apply bg-light-8 dark:bg-dark-7;
+                    }
+    
+                    &:focus-visible {
+                        @apply outline-dark-8 dark:outline-light-1;
+                    }
+                }
+            }
+        }
+    
+        &.no-title {
+            .p-dialog {
+                @apply relative;
+    
+                .p-dialog-header {
+                    @apply absolute top-[8px] right-[8px] p-0;
+    
+                    .p-dialog-title {
+                        @apply hidden;
+                    }
+                }
+    
+                .p-dialog-content {
+                    @apply p-[16px];
+                }
+            }
         }
     }
 }
@@ -495,8 +549,8 @@ html, body {
 }
 
 .img-item {
-    --img-width: 250px;
-    --img-height: 250px;
+    --img-width: 400px;
+    --img-height: auto;
     --img-radius: 8px;
 
     @apply relative;
@@ -505,10 +559,12 @@ html, body {
     transition: all 0.35s ease-in-out;
 
     &.circle {
-        @apply relative w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+        @apply relative max-w-full w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+        aspect-ratio: auto 1 / 1;
 
         .img {
-            @apply relative w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+            @apply relative max-w-full w-[var(--img-width)] h-[var(--img-height)] rounded-[var(--img-radius)];
+            aspect-ratio: auto 1 / 1;
 
             &:before {
                 @apply absolute block w-full h-full rounded-[var(--img-radius)];
@@ -561,7 +617,7 @@ html, body {
                 }
 
                 p {
-                    @apply text-dark-4 text-[12px] italic border-t border-solid border-black/50 dark:text-light-4 dark:border-white/50;
+                    @apply text-dark-4 text-[12px] italic uppercase border-t border-solid border-black/50 dark:text-light-4 dark:border-white/50;
                 }
             }
 
