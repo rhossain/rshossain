@@ -1,5 +1,6 @@
 import { Component, inject, model, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
+import { ChipModule } from 'primeng/chip';
 import { ThemeService } from '../../services/theme.service';
 import { SanityService } from '../../services/sanity.service';
 import { Project } from '../../model/types';
@@ -9,7 +10,7 @@ import { OrderByPipe } from "../../shared/order-by.pipe";
 
 @Component({
   selector: 'app-portfolio',
-  imports: [DialogModule, CommonModule, BlockToHtmlPipe, OrderByPipe],
+  imports: [DialogModule, ChipModule, CommonModule, BlockToHtmlPipe, OrderByPipe],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

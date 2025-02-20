@@ -317,11 +317,21 @@ p-dialog {
 
 .avatar {
     .avatar-image {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         animation: morph 8s ease-in-out infinite 1s;
         background-blend-mode: multiply;
         -webkit-box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
         -moz-box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
         box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, .3);
+
+        &.loader-style {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            &.loaded {
+                opacity: 1;
+            }
+        }
     }
 }
 
@@ -690,4 +700,18 @@ p-dialog {
     img {
         @apply w-full h-full;
     }
+}
+
+.loader {
+    @apply w-[80px] h-[80px] m-auto border-[10px] border-solid border-dark-1 border-t-[#FF7A59] border-b-[#FF7A59] rounded-full dark:border-light-5 dark:border-t-[#FF7A59] dark:border-b-[#FF7A59];
+    animation: spinner 2s linear infinite;
+
+    &-sm {
+        @extend .loader;
+        @apply w-[24px] h-[24px] border-[4px];
+    }
+}
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

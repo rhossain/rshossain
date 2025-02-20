@@ -108,26 +108,31 @@
                     <div class="overflow-y-auto">
                         <p class="mb-1 text-[12px] uppercase">{{ item.category }}</p>
                         <h4 class="mb-3 text-primary-1 text-2xl capitalize">{{ item.name }}</h4>
-                        <a class="block mb-3" target="_blank" href="{{ item.website }}">{{ item.website }}</a>
-                        <div
-                            *ngIf="item.shortDescription"
-                            [innerHTML]="item.shortDescription | blockToHtml"
-                            class="mb-3"
-                        ></div>
+                        <a class="block mb-3 underline hover:!underline" target="_blank" href="{{ item.website }}">{{ item.website }}</a>
 
-                        <span class="block pb-1 text-dark-1/80 font-bold dark:text-white/80">Technologies</span>
-                        <p class="mb-3">
-                            {{
-                                item.technologies
-                            }}
-                        </p>
+                        @if (item.shortDescription) {
+                            <div
+                                [innerHTML]="item.shortDescription | blockToHtml"
+                                class="mb-3"
+                            ></div>
+                        }
 
-                        <span class="block pb-1 text-dark-1/80 font-bold dark:text-white/80">Contributions</span>
-                        <div
-                            *ngIf="item.longDescription"
-                            [innerHTML]="item.longDescription | blockToHtml"
-                            class="list-disc-child"
-                        ></div>
+                        @if (item.technologies) {
+                            <div class="mb-3">
+                                <span class="block pb-2 text-dark-1/80 font-bold dark:text-white/80">Technologies</span>
+                                @for (tech of item.technologies; track $index) {
+                                    <p-chip label="{{tech}}" class="mb-[4px] mr-[8px] uppercase" />
+                                }
+                            </div>
+                        }
+
+                        @if (item.longDescription) {
+                            <span class="block pb-1 text-dark-1/80 font-bold dark:text-white/80">Contributions</span>
+                            <div
+                                [innerHTML]="item.longDescription | blockToHtml"
+                                class="list-disc-child"
+                            ></div>
+                        }
                     </div>
                 </div>
             </p-dialog>
