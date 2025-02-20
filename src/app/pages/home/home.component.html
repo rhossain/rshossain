@@ -25,7 +25,7 @@
                         (load)="onImageLoad()"
                         class="hidden"
                     />
-                    <div *ngIf="!imageLoaded" class="avatar-image absolute flex items-center justify-center inset-0 bg-no-repeat bg-center bg-cover bg-primary-1">
+                    <div *ngIf="!imageLoaded" class="avatar-image absolute flex items-center justify-center inset-0 bg-no-repeat bg-center bg-cover">
                         <div class="loader"></div>
                     </div>
                     <div class="avatar-image loader-style absolute inset-0 bg-no-repeat bg-center bg-cover" [ngClass]="{ 'loaded': imageLoaded }" style="background-image: url('{{imageUrl}}');"></div>

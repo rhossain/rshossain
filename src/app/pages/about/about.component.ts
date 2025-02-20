@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -11,18 +12,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from '../../services/theme.service';
 import { SocialsComponent } from '../../shared/socials/socials.component';
-import { CommonModule } from '@angular/common';
 import { ChipModule } from 'primeng/chip';
 import { KnobModule } from 'primeng/knob';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, FormsModule, ChipModule, KnobModule, FontAwesomeModule, SocialsComponent],
+  imports: [CommonModule, NgOptimizedImage, FormsModule, ChipModule, KnobModule, FontAwesomeModule, SocialsComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
   themeService: ThemeService = inject(ThemeService);
+
+  imageUrl = 'https://i.ibb.co.com/CmNgWtD/sazzad-hossain-01.jpg';
+  imageLoaded = false;
+
+  onImageLoad() {
+    this.imageLoaded = true;
+  }
 
   experienceItems: any[] = [
     { 
