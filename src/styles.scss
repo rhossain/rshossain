@@ -335,6 +335,15 @@ p-dialog {
     }
 }
 
+.load-img {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.loaded {
+        opacity: 1;
+    }
+}
+
 .circles {
     @apply absolute top-0 left-0 w-full h-full overflow-hidden;
 

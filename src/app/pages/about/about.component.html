@@ -44,8 +44,21 @@
     <div class="page-content">
         <!-- Personal Info -->
         <div class="flex flex-col md:flex-row md:gap-[24px] mb-[70px] pt-[16px]">
-            <div class="basis-full lg:basis-7/12 xl:basis-1/2 mb-[50px] lg:mb-0">
-                <img class="max-w-full mask1" src="../../../assets/images/sazzad-hossain-01.jpg" alt="Sazzad Hossain Robin" />
+            <div class="basis-full relative flex items-center justify-center lg:basis-7/12 xl:basis-1/2 mb-[50px] lg:mb-0">
+                <img
+                    [ngSrc]="imageUrl"
+                    alt="Sazzad Hossain Robin"
+                    width="2000"
+                    height="1468"
+                    priority
+                    (load)="onImageLoad()"
+                    class="max-w-full mask1 load-img"
+                    [ngClass]="{ 'loaded': imageLoaded }"
+                />
+                <div *ngIf="!imageLoaded" class="absolute flex items-center justify-center">
+                    <div class="loader"></div>
+                </div>
+                <!-- <img class="max-w-full mask1" src="../../../assets/images/sazzad-hossain-01.jpg" alt="Sazzad Hossain Robin" /> -->
             </div>
 
             <div class="basis-full lg:basis-5/12 xl:basis-1/2">
