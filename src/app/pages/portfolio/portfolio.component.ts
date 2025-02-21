@@ -1,16 +1,16 @@
 import { Component, inject, model, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 import { ChipModule } from 'primeng/chip';
 import { ThemeService } from '../../services/theme.service';
 import { SanityService } from '../../services/sanity.service';
 import { Project } from '../../model/types';
-import { CommonModule } from '@angular/common';
 import { BlockToHtmlPipe } from "../../shared/block-to-html.pipe";
 import { OrderByPipe } from "../../shared/order-by.pipe";
 
 @Component({
   selector: 'app-portfolio',
-  imports: [DialogModule, ChipModule, CommonModule, BlockToHtmlPipe, OrderByPipe],
+  imports: [DialogModule, ChipModule, CommonModule, NgOptimizedImage, BlockToHtmlPipe, OrderByPipe],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -22,6 +22,11 @@ export class PortfolioComponent implements OnInit {
   themeService: ThemeService = inject(ThemeService);
   priority: string = 'priority';
   visibleDialogs: { [key: number]: boolean } = {};
+  imageLoaded = false;
+
+  onImageLoad() {
+    this.imageLoaded = true;
+  }
 
   responsiveOptions: any[] = [
       {
