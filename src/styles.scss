@@ -15,17 +15,17 @@
         --color-light-6: 240, 240, 240; // #F0F0F0
         --color-light-7: 245, 245, 245; // #F5F5F5
         --color-light-8: 251, 251, 251; // #FBFBFB
-        --color-white: 255, 255, 255;   // #FFFFFF
+        --color-white: 255, 255, 255; // #FFFFFF
 
-        --color-dark-1: 2, 4, 15;   // #02040F
-        --color-dark-2: 10, 9, 8;   // #0A0908
+        --color-dark-1: 2, 4, 15; // #02040F
+        --color-dark-2: 10, 9, 8; // #0A0908
         --color-dark-3: 25, 26, 25; // #191A19
         --color-dark-4: 26, 26, 29; // #1A1A1D
         --color-dark-5: 30, 32, 30; // #1E201E
         --color-dark-6: 33, 33, 33; // #212121
         --color-dark-7: 39, 40, 41; // #272829
         --color-dark-8: 52, 49, 49; // #343131
-        --color-black: 0, 0, 0;     // #000000
+        --color-black: 0, 0, 0; // #000000
 
         --color-brand-facebook: 42, 97, 214; // #2A61D6
         --color-brand-google: 244, 56, 70; // #F43846
@@ -37,7 +37,8 @@
     }
 }
 
-html, body {
+html,
+body {
     @apply text-dark-1 text-[14px] dark:text-white;
 }
 
@@ -66,7 +67,7 @@ html, body {
 
 .section-title {
     @apply mb-[16px];
-    
+
     h3 {
         @apply relative z-[1] inline-block m-0 text-[30px] font-semibold uppercase;
 
@@ -113,6 +114,7 @@ html, body {
         mix-blend-mode: multiply;
     }
 }
+
 .dark {
     .text-variant-1 {
         &:before {
@@ -130,7 +132,7 @@ html, body {
         h6 {
             @apply mb-[4px] leading-[100%];
         }
-    
+
         span {
             @apply absolute -top-[3px] left-0 text-[28px] leading-[100%] font-medium;
         }
@@ -157,34 +159,34 @@ p-dialog {
 
         .p-dialog {
             @apply bg-light-5 text-dark-1 dark:bg-dark-3 dark:text-white;
-    
+
             .p-button-text.p-button-secondary {
                 @apply text-dark-8 dark:text-light-1;
-    
+
                 &:not(:disabled) {
                     &:hover {
                         @apply bg-light-8 dark:bg-dark-7;
                     }
-    
+
                     &:focus-visible {
                         @apply outline-dark-8 dark:outline-light-1;
                     }
                 }
             }
         }
-    
+
         &.no-title {
             .p-dialog {
                 @apply relative;
-    
+
                 .p-dialog-header {
                     @apply absolute top-[8px] right-[8px] p-0;
-    
+
                     .p-dialog-title {
                         @apply hidden;
                     }
                 }
-    
+
                 .p-dialog-content {
                     @apply p-[16px];
                 }
@@ -292,7 +294,8 @@ p-dialog {
 
         --s: 4px;
         --o: .5*var(--s);
-        font: clamp(5em, Min(65vh, 35vw), 39em)/0.75 bebas neue,sans-serif;
+        font: clamp(5em, Min(65vh, 35vw), 39em)/0.75 bebas neue,
+        sans-serif;
     }
 
     &-title {
@@ -645,7 +648,7 @@ p-dialog {
                     h4 {
                         @apply flex items-center justify-center h-[76px] mx-[16px] my-0 p-0 pt-[16px];
                     }
-    
+
                     p {
                         @apply mx-[16px] my-0 p-[6px];
                     }
@@ -720,7 +723,124 @@ p-dialog {
         @apply w-[24px] h-[24px] border-[4px];
     }
 }
+
 @keyframes spinner {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader2 {
+    width: 50px;
+    --b: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    background: conic-gradient(#0000 10%, #FF7A59) content-box;
+    -webkit-mask:
+        repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: l4 1s infinite steps(10);
+}
+
+@keyframes l4 {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+/* HTML: <div class="loader3"></div> */
+.loader3 {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+}
+
+.loader3::before,
+.loader3::after {
+    content: "";
+    grid-area: 1/1;
+    --c: no-repeat radial-gradient(farthest-side, #FF7A59 92%, #0000);
+    background:
+        var(--c) 50% 0,
+        var(--c) 50% 100%,
+        var(--c) 100% 50%,
+        var(--c) 0 50%;
+    background-size: 12px 12px;
+    animation: l12 1s infinite;
+}
+
+.loader3::before {
+    margin: 4px;
+    filter: hue-rotate(45deg);
+    background-size: 8px 8px;
+    animation-timing-function: linear
+}
+
+@keyframes l12 {
+    100% {
+        transform: rotate(.5turn)
+    }
+}
+
+/* HTML: <div class="loader4"></div> */
+.loader4 {
+    width: 60px;
+    aspect-ratio: 1;
+    color: #FF7A59;
+    background:
+        linear-gradient(currentColor 0 0) 100% 0,
+        linear-gradient(currentColor 0 0) 0 100%;
+    background-size: 50.1% 50.1%;
+    background-repeat: no-repeat;
+    animation: l7-0 1s infinite steps(1);
+}
+
+.loader4::before,
+.loader4::after {
+    content: "";
+    position: absolute;
+    inset: 0 50% 50% 0;
+    background: currentColor;
+    transform: scale(var(--s, 1)) perspective(150px) rotateY(0deg);
+    transform-origin: bottom right;
+    animation: l7-1 .5s infinite linear alternate;
+}
+
+.loader4::after {
+    --s: -1, -1;
+}
+
+@keyframes l7-0 {
+    0% {
+        transform: scaleX(1) rotate(0deg)
+    }
+
+    50% {
+        transform: scaleX(-1) rotate(-90deg)
+    }
+}
+
+@keyframes l7-1 {
+    49.99% {
+        transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg);
+        filter: grayscale(0)
+    }
+
+    50% {
+        transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg);
+        filter: grayscale(0.8)
+    }
+
+    100% {
+        transform: scale(var(--s, 1)) perspective(150px) rotateX(-180deg);
+        filter: grayscale(0.8)
+    }
 }
