@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormGroup,
   Validators,
   FormControl,
+  FormBuilder,
 } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
@@ -12,6 +13,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { DividerModule } from 'primeng/divider';
 import emailjs from '@emailjs/browser';
+import { NgxCaptchaModule, ReCaptcha2Component } from 'ngx-captcha';
 import { ThemeService } from '../../services/theme.service';
 import {
   FontAwesomeModule,
@@ -19,30 +21,39 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { SocialsComponent } from "../../shared/socials/socials.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, InputTextModule, FloatLabelModule, TextareaModule, ToastModule, DividerModule, FontAwesomeModule, SocialsComponent],
+  imports: [CommonModule, ReactiveFormsModule, InputTextModule, FloatLabelModule, TextareaModule, ToastModule, DividerModule, FontAwesomeModule, NgxCaptchaModule, SocialsComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
   providers: [MessageService]
 })
-export class ContactComponent {
-  themeService: ThemeService = inject(ThemeService);
+export class ContactComponent implements OnInit {
+  @ViewChild('captchaElem') captchaElem!: ReCaptcha2Component;
 
-  contactForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    msg: new FormControl('', [Validators.required]),
-  });
+  themeService: ThemeService = inject(ThemeService);
+  contactForm!: FormGroup;
+  siteKey: string = '6Ld75N8qAAAAANR83I8KueuCEgJrhpy7U_NSQamp';
 
   constructor(
     private messageService: MessageService, 
+    private fb: FormBuilder,
     library: FaIconLibrary
   ) {
     library.addIcons(
       faArrowRight
     );
+  }
+
+  ngOnInit() {
+    this.contactForm = this.fb.group({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      msg: new FormControl('', [Validators.required]),
+      recaptcha: new FormControl('', [Validators.required]),
+    });
   }
 
   showSuccess() {
@@ -70,6 +81,7 @@ export class ContactComponent {
           console.log('Message sent!');
           this.showSuccess();
           this.contactForm.reset();
+          this.captchaElem.resetCaptcha();
         },
         (err) => {
           console.log('Message not sent!!!', err);
