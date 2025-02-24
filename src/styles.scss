@@ -25,6 +25,8 @@
         --color-dark-6: 33, 33, 33; // #212121
         --color-dark-7: 39, 40, 41; // #272829
         --color-dark-8: 52, 49, 49; // #343131
+        --color-dark-9: 75, 75, 75; // #4b4b4b
+        --color-dark-10: 82, 82, 91; // #52525b
         --color-black: 0, 0, 0;     // #000000
 
         --color-brand-facebook: 42, 97, 214; // #2A61D6
@@ -118,6 +120,24 @@ html, body {
         &:before {
             text-shadow: -0.001em -0.001em 1px rgba(81, 191, 165, .85);
         }
+    }
+}
+
+.pfloatlabel-reset {
+    &.p-floatlabel-on:has(input:focus) label, 
+    &.p-floatlabel-on:has(input.p-filled) label, 
+    &.p-floatlabel-on:has(input:-webkit-autofill) label, 
+    &.p-floatlabel-on:has(textarea:focus) label, 
+    &.p-floatlabel-on:has(textarea.p-filled) label, 
+    &.p-floatlabel-on:has(.p-inputwrapper-focus) label, 
+    &.p-floatlabel-on:has(.p-inputwrapper-filled) label {
+        @apply px-[4px] bg-light-5 text-primary-1 dark:bg-dark-3 dark:text-primary-1;
+    }
+}
+
+.pinput-reset {
+    &.p-inputtext, &.p-textarea {
+        @apply bg-light-5 text-dark-1 border-light-1 dark:bg-dark-3 dark:text-white dark:border-dark-10;
     }
 }
 
