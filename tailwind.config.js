@@ -30,6 +30,8 @@ module.exports = {
         'dark-6': withOpacity("--color-dark-6"),
         'dark-7': withOpacity("--color-dark-7"),
         'dark-8': withOpacity("--color-dark-8"),
+        'dark-9': withOpacity("--color-dark-9"),
+        'dark-10': withOpacity("--color-dark-10"),
         'brand-facebook': withOpacity("--color-brand-facebook"),
         'brand-google': withOpacity("--color-brand-google"),
         'brand-instagram': withOpacity("--color-brand-instagram"),
