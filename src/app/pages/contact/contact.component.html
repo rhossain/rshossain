@@ -5,98 +5,104 @@
         <div class="page-header-inner">
             <h1 class="page-title">Contact Me</h1>
         </div>
-    
+
         <!--Waves Container-->
         <div>
             @if(themeService.darkModeSignal() === "dark") {
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(10, 9, 8,0.7" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(10, 9, 8,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(10, 9, 8,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#0A0908" />
-                    </g>
-                </svg>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(10, 9, 8,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(10, 9, 8,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(10, 9, 8,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#0A0908" />
+                </g>
+            </svg>
             } @else {
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-                    </g>
-                </svg>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
             }
-            
+
         </div>
         <!--Waves end-->
-    
+
     </div>
-    
-    <div class="page-content flex flex-col sm:flex-row gap-[16px] pt-[40px] lg:max-w-[1600px] lg:mx-aut">
-        <div class="w-full sm:w-1/3 flex justify-center order-2 sm:order-1">
-            <div>
-                <div class="pb-[20px]">
-                    <span class="opacity-80">Phone: </span>
-                    <span class="block font-semibold">+880 1713 204 761</span>
-                </div>
-                <div class="pb-[24px]">
-                    <span class="opacity-80">Email: </span>
-                    <span class="block font-semibold">rshossain.bd&#64;gmail.com</span>
-                </div>
-                <div class="socials !relative !bottom-0  flex flex-col">
-                    <p class="mb-[8px]">Social connections:</p>
-                    <app-socials></app-socials>
+
+    <div class="page-content pt-[20px]">
+        <div class="flex flex-col sm:flex-row gap-[16px] mx-auto lg:max-w-[1400px]">
+            <div class="w-full sm:w-1/3 flex justify-center order-2 sm:order-1">
+                <div>
+                    <div class="pb-[20px]">
+                        <span class="opacity-80">Phone: </span>
+                        <span class="block font-semibold">+880 1713 204 761</span>
+                    </div>
+                    <div class="pb-[24px]">
+                        <span class="opacity-80">Email: </span>
+                        <span class="block font-semibold">rshossain.bd&#64;gmail.com</span>
+                    </div>
+                    <div class="socials !relative !bottom-0  flex flex-col">
+                        <p class="mb-[8px]">Social connections:</p>
+                        <app-socials></app-socials>
+                    </div>
                 </div>
             </div>
-        </div>
-        <p-divider layout="vertical" type="dashed" class="!hidden sm:!flex order-2" />
-        <div class="w-full sm:w-2/3 flex flex-col items-center pb-[24px] sm:pb-0 order-1 sm:order-3">
-            <div class="section-title sm:-ml-[68px]">
-                <h3>Get in touch</h3>
-            </div>
-            <form (ngSubmit)="sendEmail($event)" [formGroup]="contactForm">
-                <p-floatlabel class="pfloatlabel-reset mb-3" variant="on">
-                    <input pInputText class="pinput-reset w-full" id="on_label" formControlName="name" autocomplete="off" />
-                    <label for="on_label">Name</label>
-                </p-floatlabel>
-                
-                <p-floatlabel class="pfloatlabel-reset mb-3" variant="on">
-                    <input pInputText class="pinput-reset w-full" id="on_label" formControlName="email" autocomplete="off" />
-                    <label for="on_label">Email</label>
-                </p-floatlabel>
-
-                <p-floatlabel class="pfloatlabel-reset mb-3" variant="on">
-                    <textarea pTextarea class="pinput-reset w-full h-full" id="over_label" formControlName="msg" rows="5" cols="30" style="resize: none"></textarea>
-                    <label for="on_label">Message</label>
-                </p-floatlabel>
-
-                <ngx-recaptcha2 
-                    #captchaElem
-                    [siteKey]="siteKey"
-                    formControlName="recaptcha">
-                </ngx-recaptcha2>
-                <div *ngIf="contactForm.controls['recaptcha'].invalid && contactForm.controls['recaptcha'].touched">
-                    Captcha is required.
+            <p-divider layout="vertical" type="dashed" class="!hidden sm:!flex order-2" />
+            <div class="w-full sm:w-2/3 flex flex-col items-center pb-[24px] sm:pb-0 order-1 sm:order-3">
+                <div class="section-title sm:-ml-[68px]">
+                    <h3>Get in touch</h3>
                 </div>
+                <form (ngSubmit)="sendEmail($event)" [formGroup]="contactForm">
+                    <p-floatlabel class="pfloatlabel-reset mb-3" variant="on">
+                        <input pInputText class="pinput-reset w-full min-w-[304px]" id="on_label" formControlName="name"
+                            autocomplete="off" />
+                        <label for="on_label">Name</label>
+                    </p-floatlabel>
 
-                <p-toast position="bottom-right" key="br" />
-                
-                <button type="submit" [disabled]="contactForm.invalid" class="mt-3 button group cursor-pointer overflow-hidden inline-block leading-[1.4] border border-solid border-accent rounded-[30px] text-ellipsis text-center align-middle select-none transition-all duration-[.25s] ease-in-out uppercase no-underline relative z-10 py-[16px] pr-[70px] pl-[35px] text-[15px] font-semibold text-white bg-transparent outline-0 before:absolute before:-z-10 before:left-0 before:right-0 before:top-0 before:bottom-0 before:translate-x-full hover:before:translate-x-0 before:transition before:duration-300 before:ease-out disabled:select-none disabled:pointer-events-none disabled:opacity-70">
-                    <span class="relative z-20 text-dark-1 dark:text-white">Send</span>
-                    <span class="absolute -right-px bottom-0 w-[55px] h-[55px] flex items-center justify-center rounded-full text-dark-1 text-[19px] bg-accent dark:text-white">
-                        <fa-icon [icon]="['fas', 'arrow-right']"></fa-icon>
-                    </span>
-                </button>
-            </form>
+                    <p-floatlabel class="pfloatlabel-reset mb-3" variant="on">
+                        <input pInputText class="pinput-reset w-full min-w-[304px]" id="on_label" formControlName="email"
+                            autocomplete="off" />
+                        <label for="on_label">Email</label>
+                    </p-floatlabel>
+
+                    <p-floatlabel class="pfloatlabel-reset mb-3" variant="on">
+                        <textarea pTextarea class="pinput-reset w-full min-w-[304px] h-full" id="over_label" formControlName="msg"
+                            rows="5" cols="30" style="resize: none"></textarea>
+                        <label for="on_label">Message</label>
+                    </p-floatlabel>
+
+                    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+                    </ngx-recaptcha2>
+                    <div *ngIf="contactForm.controls['recaptcha'].invalid && contactForm.controls['recaptcha'].touched">
+                        Captcha is required.
+                    </div>
+
+                    <p-toast position="bottom-right" key="br" />
+
+                    <button type="submit" [disabled]="contactForm.invalid"
+                        class="mt-3 button group cursor-pointer overflow-hidden inline-block leading-[1.4] border border-solid border-accent rounded-[30px] text-ellipsis text-center align-middle select-none transition-all duration-[.25s] ease-in-out uppercase no-underline relative z-10 py-[16px] pr-[70px] pl-[35px] text-[15px] font-semibold text-white bg-transparent outline-0 before:absolute before:-z-10 before:left-0 before:right-0 before:top-0 before:bottom-0 before:translate-x-full hover:before:translate-x-0 before:transition before:duration-300 before:ease-out disabled:select-none disabled:pointer-events-none disabled:opacity-70">
+                        <span class="relative z-20 text-dark-1 dark:text-white">Send</span>
+                        <span
+                            class="absolute -right-px bottom-0 w-[55px] h-[55px] flex items-center justify-center rounded-full text-dark-1 text-[19px] bg-accent dark:text-white">
+                            <fa-icon [icon]="['fas', 'arrow-right']"></fa-icon>
+                        </span>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
