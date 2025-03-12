@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       colors: {
         'primary-1': withOpacity("--color-primary-1"),
+        'secondary-1': withOpacity("--color-secondary-1"),
         'light-1': withOpacity("--color-light-1"),
         'light-2': withOpacity("--color-light-2"),
         'light-3': withOpacity("--color-light-3"),
