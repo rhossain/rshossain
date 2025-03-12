@@ -6,6 +6,7 @@
 @layer base {
     :root {
         --color-primary-1: 81, 191, 165; // #51BFA5
+        --color-secondary-1: 255, 122, 89; // #FF7A59
 
         --color-light-1: 180, 180, 180; // #B4B4B4
         --color-light-2: 199, 200, 204; // #C7C8CC
@@ -167,6 +168,16 @@ body {
     &-default {
         &.p-chip {
             @apply mr-[8px] last:mr-0 mb-[8px] bg-light-3 text-dark-1 dark:bg-dark-8 dark:text-white;
+
+            .p-chip-title {
+                @apply bg-secondary-1 text-white dark:text-white text-[16px] font-semibold uppercase rounded-full w-[2rem] h-[2rem] flex items-center justify-center;
+            }
+
+            &:has(.p-chip-title) {
+                padding-top: calc(var(--p-chip-padding-y) / 2);
+                padding-bottom: calc(var(--p-chip-padding-y) / 2);
+                padding-left: 4px;
+            }
         }
     }
 }
@@ -334,7 +345,7 @@ p-dialog {
     }
 
     &-content {
-        @apply h-[calc(100%-150px)] md:h-[calc(100%-280px)] mt-[150px] md:mt-[280px] mb-[20px] ml-[9px] mr-[18px] pl-[15px] pr-[6px] md:ml-[65px] md:mr-[84px] overflow-auto;
+        @apply h-[calc(100%-150px)] md:h-[calc(100%-300px)] mt-[150px] md:mt-[300px] mb-[30px] ml-[9px] mr-[18px] pl-[15px] pr-[6px] md:ml-[65px] md:mr-[100px] overflow-auto;
     }
 }
 
