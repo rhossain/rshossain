@@ -1,9 +1,0 @@
-<ul class="social-btn">
-    @for (item of socialItems; track $index) {
-        <li>
-            <a [href]="item.link" target="_blank">
-                <fa-icon [class]="item.iconClass" [icon]="[item.iconGroup, item.iconName]"></fa-icon>
-            </a>
-        </li>
-    }
-</ul>
